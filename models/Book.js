@@ -30,6 +30,13 @@ const BooksSchema = new mongoose.Schema({
         type: Boolean,
         default: true
     },
+    owner:{
+      type: String,
+      required: [true, "please provide owner's name"],
+      minlength: 3,
+      maxlength: 30,
+      trim: true
+    }
   });
 
   export default mongoose.model("Book",BooksSchema);
