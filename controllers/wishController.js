@@ -18,11 +18,12 @@ const getWishes = async (req, res) => {
 
 const getOneWish = async (req, res) => {
   const oneWish = await Wish.findById(re.params.id);
+
   res.send(oneWish)
 };
 
 const deleteWish = async (req, res) => {
-    const wishDelete = await Wish.findByIdAndRemove(req.params.id)
+    let wishDelete = await Wish.findByIdAndDelete(req.params.id)
     res.send(`Deleted wish with ${req.params.id}`)
 }
 
