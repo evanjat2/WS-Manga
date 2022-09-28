@@ -2,34 +2,45 @@ import Wish from "../models/Book.js";
 import { StatusCodes } from "http-status-codes";
 
 const postWish = async (req, res) => {
+  try{
+    const wish = await Wish.create({...req.body, istoSell: false});
+    res.status(StatusCodes.CREATED).json({ wish });
+  } catch(e) {
+    res.send(e.message)
+  }
   
-  const wish = await Wish.create({...req.body, istoSell: false});
-  res.status(StatusCodes.CREATED).json({ wish });
 };
 
-const getWishes = (req, res) => {
-  res.send("All the wishes");
+const getWishes = async (req, res) => {
+  const wishes = await Wish.find()
+  res.send(wishes)
 };
 
-const getOneWish = (req, res) => {
-  res.send(`Get Wish with ID ${req.params.id}`);
+const getOneWish = async (req, res) => {
+  const oneWish = await Wish.findById(re.params.id);
+  res.send(oneWish)
 };
 
-const deleteWish = (req, res) => {
-    res.send(`Delete Wish with ID ${req.params.id}`)
+const deleteWish = async (req, res) => {
+    const wishDelete = await Wish.findByIdAndRemove(req.params.id)
+    res.send(`Deleted wish with ${req.params.id}`)
 }
 
 const updateWish = (req, res) => {
-    const id = req.params.id
-    const { judul, pengarang} = req.body
+    const { id } = req.params
+    const { judul, pengarang, penerbit, jumlahHalaman, tahunTerbit} = req.body
 
-    // const wish = wishes.find((wish) => wish.id === id)
+    const wish = Wish.findById(id)
 
-    // if (judul) wish.judul = judul
-    // if (pengarang) wish.pengarang = pengarang
-    // await wish.save()
+    if (judul) wish.judul = judul
+    if (pengarang) wish.pengarang = pengarang
+    if (penerbit) wish.penerbit = penerbit
+    if (jumlahHalaman) wish.jumlahHalaman = jumlahHalaman
+    if (tahunTerbit) wish.tahunTerbit = tahunTerbit
 
-    // res.send(`User with ID ${id} has been updated`)
+    wish.save()
+
+    res.send(`User with ID ${id} has been updated`)
 }
 
 export { getWishes, postWish, getOneWish, deleteWish, updateWish };
