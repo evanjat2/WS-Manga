@@ -1,3 +1,4 @@
+import cors from "cors";
 import express from "express";
 const app = express();
 
@@ -16,16 +17,17 @@ import sellRouter from "./routes/sellRouters.js";
 import notFoundMiddleware from "./middleware/not-found.js";
 import errorHandlerMiddleware from "./middleware/error-handler.js";
 
+app.use(cors());
 app.use(express.json());
 
-app.get("/", (req, res) => {
+app.get("/api/v1", (req, res) => {
   //throw new Error("Tes doang")
-  res.send("Welcome!");
+  res.json({msg:"welcome"});
 });
 
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/wishlist", wishRouter);
-app.use("/api/v1/sell",sellRouter);
+app.use("/api/v1/sell", sellRouter);
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 const port = process.env.PORT;
