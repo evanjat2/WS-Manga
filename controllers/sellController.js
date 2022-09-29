@@ -32,22 +32,20 @@ const updateBook = async (req, res) => {
   }
 
   const book = await Book.findOne({ _id: bookId });
+  
   if (!book) {
     throw new NotFoundError(`No book with id :${bookId}`);
   }
-
-  book.pengarang = pengarang;
+  
   book.judul = judul;
+  book.pengarang = pengarang;
+  
 
-  const pemilik = await book.owner;
-  const userid = await req.user.userId;
-  const token = user.createJWT();
-  if (pemilik == userid) {
-    await book.save();
-    res.status(StatusCodes.OK).json({ book, token });
-  } else {
-    throw new UnAuthenticatedError("Anda bukan pemilik buku yang dijual ini");
+  if (req.user.userId !== book.owner.toString()) {
+    throw new UnAuthenticatedError("Ini bukan buku yang anda jual");
   }
+  await book.save();
+  res.status(StatusCodes.OK).json({ book });
 };
 
 const deleteBook = async (req, res) => {
