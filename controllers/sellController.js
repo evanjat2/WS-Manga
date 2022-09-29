@@ -16,7 +16,7 @@ const postBook = async (req, res) => {
 };
 
 const getOwnedBook = async (req, res) => {
-  const book = await Book.find({ owner: req.user.userId });
+  const book = await Book.find({ owner: req.user.userId, istoSell: true });
   res.status(StatusCodes.OK).json({ book, totalBooks: book.length });
 };
 const getBook = async (req, res) => {
@@ -31,15 +31,14 @@ const updateBook = async (req, res) => {
     throw new BadRequestError("Please provide all value");
   }
 
-  const book = await Book.findOne({ _id: bookId });
-  
+  const book = await Book.findOne({ _id: bookId, istoSell: true });
+
   if (!book) {
     throw new NotFoundError(`No book with id :${bookId}`);
   }
-  
+
   book.judul = judul;
   book.pengarang = pengarang;
-  
 
   if (req.user.userId !== book.owner.toString()) {
     throw new UnAuthenticatedError("Ini bukan buku yang anda jual");
@@ -51,7 +50,7 @@ const updateBook = async (req, res) => {
 const deleteBook = async (req, res) => {
   const { id: bookId } = req.params;
 
-  const book = await Book.findOne({ _id: bookId });
+  const book = await Book.findOne({ _id: bookId, istoSell: true });
 
   if (!book) {
     throw new NotFoundError(`No book with id :${bookId}`);
@@ -67,7 +66,7 @@ const deleteBook = async (req, res) => {
 };
 
 const getOneBook = async (req, res) => {
-  const oneBook = await Book.findById(req.params.id);
+  const oneBook = await Book.findOne({ _id: req.params.id });
   res.send(oneBook);
 };
 export { postBook, getBook, updateBook, deleteBook, getOneBook, getOwnedBook };
