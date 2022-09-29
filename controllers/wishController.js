@@ -40,6 +40,11 @@ const deleteWish = async (req, res) => {
   if (!wish) {
     throw new NotFoundError(`Item wishlist yang ada maksud tidak ditemukan`);
   }
+
+  if (req.user.userId !== wish.owner.toString()) {
+    throw new UnAuthenticatedError("Ini bukan item wishlist milik Anda");
+  }
+
   await wish.remove();
 
   res.status(StatusCodes.OK).json({ msg: "Sukses! Item wishlist telah dihapus" })
@@ -60,6 +65,9 @@ const updateWish = async (req, res) => {
     if (jumlahHalaman) wish.jumlahHalaman = jumlahHalaman
     if (tahunTerbit) wish.tahunTerbit = tahunTerbit
 
+    if (req.user.userId !== wish.owner.toString()) {
+      throw new UnAuthenticatedError("Ini bukan item wishlist milik Anda");
+    }
     wish.save()
 
     res.send(`Item wishlist berhasil di-update`)
