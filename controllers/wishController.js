@@ -18,7 +18,7 @@ const postWish = async (req, res) => {
 };
 
 const getOwnWishes = async (req, res) => {
-  const wishes = await Wish.find({ owner: req.user.userId });
+  const wishes = await Wish.find({ owner: req.user.userId, istoSell: false });
   res.status(StatusCodes.OK).json({ wishes, totalWishes: wishes.length });
 };
 
