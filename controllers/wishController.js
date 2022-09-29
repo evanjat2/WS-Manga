@@ -1,30 +1,48 @@
 import Wish from "../models/Book.js";
 import { StatusCodes } from "http-status-codes";
+import {
+  BadRequestError,
+  NotFoundError,
+  UnAuthenticatedError,
+} from "../errors/index.js";
 
 const postWish = async (req, res) => {
-  try{
-    const wish = await Wish.create({...req.body, istoSell: false});
-    res.status(StatusCodes.CREATED).json({ wish });
-  } catch(e) {
-    res.send(e.message)
+  const { judul, pengarang } = req.body;
+
+  if (!judul || !pengarang) {
+    throw new BadRequestError("Please provide all values");
   }
-  
+  req.body.owner = req.user.userId;
+  const wish = await Wish.create(req.body);
+  res.status(StatusCodes.CREATED).json({ wish });
+};
+
+const getOwnWishes = async (req, res) => {
+  const wishes = await Wish.find({ owner: req.user.userId });
+  res.status(StatusCodes.OK).json({ wishes, totalWishes: wishes.length });
 };
 
 const getWishes = async (req, res) => {
   const wishes = await Wish.find({istoSell : false})
-  res.send(wishes)
+  res.status(StatusCodes.OK).json({ wishes, totalWishes: wishes.length })
 };
 
 const getOneWish = async (req, res) => {
-  const oneWish = await Wish.findById(req.params.id);
-
+  const wishId = req.params.id
+  const oneWish = await Wish.findById(wishId);
   res.send(oneWish)
 };
 
 const deleteWish = async (req, res) => {
-    let wishDelete = await Wish.findByIdAndDelete(req.params.id)
-    res.send(`Deleted wish with ${req.params.id}`)
+  const {id: wishId} = req.params
+  const wish = await Wish.findOne({ _id: wishId });
+
+  if (!wish) {
+    throw new NotFoundError(`Item wishlist yang ada maksud tidak ditemukan`);
+  }
+  await wish.remove();
+
+  res.status(StatusCodes.OK).json({ msg: "Sukses! Item wishlist telah dihapus" })
 }
 
 const updateWish = async (req, res) => {
@@ -32,6 +50,9 @@ const updateWish = async (req, res) => {
     const { judul, pengarang, penerbit, jumlahHalaman, tahunTerbit} = req.body
 
     const wish = await Wish.findById(id)
+    if (!wish) {
+      throw new NotFoundError(`Item wishlist tidak ditemukan`);
+    }
 
     if (judul) wish.judul = judul
     if (pengarang) wish.pengarang = pengarang
@@ -41,7 +62,7 @@ const updateWish = async (req, res) => {
 
     wish.save()
 
-    res.send(`Wish with ID ${id} has been updated`)
+    res.send(`Item wishlist berhasil di-update`)
 }
 
-export { getWishes, postWish, getOneWish, deleteWish, updateWish };
+export { getWishes, getOwnWishes, postWish, getOneWish, deleteWish, updateWish };
