@@ -12,12 +12,12 @@ const postWish = async (req, res) => {
 };
 
 const getWishes = async (req, res) => {
-  const wishes = await Wish.find()
+  const wishes = await Wish.find({istoSell : false})
   res.send(wishes)
 };
 
 const getOneWish = async (req, res) => {
-  const oneWish = await Wish.findById(re.params.id);
+  const oneWish = await Wish.findById(req.params.id);
 
   res.send(oneWish)
 };
@@ -27,11 +27,11 @@ const deleteWish = async (req, res) => {
     res.send(`Deleted wish with ${req.params.id}`)
 }
 
-const updateWish = (req, res) => {
+const updateWish = async (req, res) => {
     const { id } = req.params
     const { judul, pengarang, penerbit, jumlahHalaman, tahunTerbit} = req.body
 
-    const wish = Wish.findById(id)
+    const wish = await Wish.findById(id)
 
     if (judul) wish.judul = judul
     if (pengarang) wish.pengarang = pengarang
@@ -41,7 +41,7 @@ const updateWish = (req, res) => {
 
     wish.save()
 
-    res.send(`User with ID ${id} has been updated`)
+    res.send(`Wish with ID ${id} has been updated`)
 }
 
 export { getWishes, postWish, getOneWish, deleteWish, updateWish };
