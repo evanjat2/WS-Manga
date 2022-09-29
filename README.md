@@ -5,14 +5,26 @@
 git clone https://github.com/evanjat2/PAW.git
 ```
 
-## Then install the dependency with
+## Second, install the dependency with
 ```
 npm install
 ```
 
-## Finally, run the server on PAW directory
+## Finally 
+### Run the server on PAW directory
+```
+npm run server
+```
+### or
+### Run the client side on PAW directory
+```
+npm run client
+```
+### or
+## Run both client and server on PAW directory
 ```
 npm start
 ```
 
-Happy coding !
+
+Happy coding xD !
