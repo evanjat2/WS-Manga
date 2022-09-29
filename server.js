@@ -31,7 +31,7 @@ app.get("/api/v1", (req, res) => {
 
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/wishlist", wishRouter);
-app.use("/api/v1/sell", sellRouter);
+app.use("/api/v1/sell",sellRouter);
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 const port = process.env.PORT;
