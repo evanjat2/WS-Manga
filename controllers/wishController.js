@@ -13,7 +13,7 @@ const postWish = async (req, res) => {
     throw new BadRequestError("Please provide all values");
   }
   req.body.owner = req.user.userId;
-  const wish = await Wish.create(req.body);
+  const wish = await Wish.create({...req.body, istoSell: false});
   res.status(StatusCodes.CREATED).json({ wish });
 };
 
