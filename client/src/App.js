@@ -1,5 +1,5 @@
 import "./App.css";
-import { Dashboard, Landing } from "../src/pages";
+import { Dashboard, Landing, LoginPage, SignUpPage} from "../src/pages";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 function App() {
@@ -9,6 +9,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />}></Route>
           <Route path="/dashboard" element={<Dashboard />}></Route>
+          <Route path="/login" element={<LoginPage />}></Route>
+          <Route path="/signup" element={<SignUpPage />}></Route>
         </Routes>
       </BrowserRouter>
     </>
