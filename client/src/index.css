@@ -16,6 +16,11 @@ code {
     monospace;
 }
 
+input:-webkit-autofill,
+  input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+  }
+
 @font-face {
   font-family: 'NotoSerifTC';
   src: url("./assets/fonts/noto-serif-tc.otf") format otf;

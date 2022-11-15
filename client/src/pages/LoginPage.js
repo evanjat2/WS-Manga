@@ -1,5 +1,5 @@
-import Login from "../component/Login/Login";
-import Background from "../component/Login/Background";
+import Login from "../component/Auth/Login";
+import Background from "../component/Auth/Background";
 const LoginPage = () => {
   return (
     <>

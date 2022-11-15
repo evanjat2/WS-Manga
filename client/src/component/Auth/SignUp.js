@@ -1,4 +1,4 @@
-import Input from "../Auth/Input";
+import Input from "./Input";
 const SignUp = () => {
   return (
     <div className="grid min-h-screen content-center px-[5%] sm:px-[8%] md:px-[12%] lg:px-[25%] xl:px-[33%] font-reemkufiink font-bold">

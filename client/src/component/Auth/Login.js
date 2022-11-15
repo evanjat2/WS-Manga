@@ -1,5 +1,5 @@
-import Input from "../Auth/Input";
-import AuthButton from "../Button/AuthButton";
+import Input from "./Input";
+import AuthButton from "./AuthButton";
 const Login = () => {
   return (
     <div className="grid min-h-screen content-center px-[5%] sm:px-[8%] md:px-[12%] lg:px-[25%] xl:px-[33%] font-reemkufiink font-bold">

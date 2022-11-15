@@ -1,5 +1,5 @@
-import SignUp from "../component/SignUp/SignUp";
-import Background from "../component/Login/Background";
+import SignUp from "../component/Auth/SignUp";
+import Background from "../component/Auth/Background";
 const SignUpPage = () => {
   return (
     <>
