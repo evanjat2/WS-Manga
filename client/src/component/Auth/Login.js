@@ -17,12 +17,7 @@ const Login = () => {
             <Input name="sandi" placeholder="" />
           </label>
         </div>
-        <a
-          href="/"
-          className="grid content-center cursor-pointer bg-buttonGreen rounded-[10px] w-[134px] h-[38px] mx-auto text-white text-center"
-        >
-          <AuthButton name="Login"/>
-        </a>
+        <AuthButton name="Login"/>
         <div className="flex gap-2 justify-center w-full text-[#000000]">
           <p className="font-medium">Sign Up</p>
           <p className="font-semibold text-[#45B69C]">Forgot Password</p>
