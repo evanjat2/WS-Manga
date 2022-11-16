@@ -1,18 +1,21 @@
 import { useState } from "react";
-import {
-  MdVisibility,
-  MdVisibilityOff,
-} from "react-icons/md";
+import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 
-export default function Input({ name, placeholder }) {
+export default function Input({ name, placeholder, values, setValues, value }) {
   const [pwdVisible, setPwdVisible] = useState(false);
+  const [state, setState] = useState(value);
+
+  const handleChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+    setState(e.target.value);
+  };
 
   let type;
   switch (name) {
     case "email":
       type = "email";
       break;
-    case "sandi":
+    case "password":
       type = "password";
       break;
     default:
@@ -25,11 +28,13 @@ export default function Input({ name, placeholder }) {
         required
         name={name}
         className=" font-Inter block w-full outline-0 h-[70px] bg-[#FBAB05] rounded-xl text-black font-bold text-lg "
-        type={name === "sandi" ? (pwdVisible ? "text" : "password") : type}
+        type={name === "password" ? (pwdVisible ? "text" : "password") : type}
         placeholder={placeholder}
         autoComplete="off"
+        value={state}
+        onChange={handleChange}
       />
-      {name === "sandi" && (
+      {name === "password" && (
         <button
           type="button"
           onClick={() => setPwdVisible((prevState) => !prevState)}
