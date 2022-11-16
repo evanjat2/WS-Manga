@@ -3,6 +3,7 @@ import Input from "./Input";
 import AuthButton from "./AuthButton";
 import { useAppContext } from "../../context/appContext";
 import Alert from "../Alert";
+import { useNavigate } from 'react-router-dom';
 
 const initialState = {
   name: "",
@@ -11,7 +12,8 @@ const initialState = {
 };
 const SignUp = () => {
   const [values, setValues] = useState(initialState);
-  const { registerUser, showAlert } = useAppContext();
+  let navigate = useNavigate();
+  const { registerUser, showAlert, user } = useAppContext();
   const onSubmit = (e) => {
     console.log("berhasil submit");
     e.preventDefault();
@@ -24,6 +26,14 @@ const SignUp = () => {
     const currentUser = { name, email, password };
     registerUser(currentUser);
   };
+
+  useEffect(() => {
+    if (user) {
+      setTimeout(() => {
+        navigate(`/`);
+      }, 3000);
+    }
+  }, [user]);
 
   return (
     <div className="grid min-h-screen content-center px-[5%] sm:px-[8%] md:px-[12%] lg:px-[25%] xl:px-[33%] font-reemkufiink font-bold">
