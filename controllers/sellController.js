@@ -5,9 +5,9 @@ import UnAuthenticatedError from "../errors/unauthenticated.js";
 import NotFoundError from "../errors/not-found.js";
 
 const postBook = async (req, res) => {
-  const { judul, pengarang } = req.body;
+  const { judul, pengarang, detail, urlGambar } = req.body;
 
-  if (!judul || !pengarang) {
+  if (!judul || !pengarang || !detail || !urlGambar) {
     throw new BadRequestError("Please provide all values");
   }
   req.body.owner = req.user.userId;
@@ -26,8 +26,8 @@ const getBook = async (req, res) => {
 
 const updateBook = async (req, res) => {
   const { id: bookId } = req.params;
-  const { judul, pengarang } = req.body;
-  if (!judul || !pengarang) {
+  const { judul, pengarang, detail, urlGambar } = req.body;
+  if (!judul || !pengarang || !detail || !urlGambar) {
     throw new BadRequestError("Please provide all value");
   }
 
@@ -39,6 +39,8 @@ const updateBook = async (req, res) => {
 
   book.judul = judul;
   book.pengarang = pengarang;
+  book.detail = detail;
+  book.urlGambar = urlGambar;
 
   if (req.user.userId !== book.owner.toString()) {
     throw new UnAuthenticatedError("Ini bukan buku yang anda jual");

@@ -1,5 +1,33 @@
+import { useState, useEffect } from "react";
+import Input from "./Input";
+import { useAppContext } from "../context/appContext";
 import { BsImages } from "react-icons/bs";
+
+const initialState = {
+  judul: "",
+  pengarang: "",
+  detail: "",
+  imgurl: "dummy",
+};
+
 const PenjualCreate = () => {
+  const [values, setValues] = useState(initialState);
+  const { penjualCreate, showAlert, user } = useAppContext();
+
+  //DUMMY
+  const startingState = {
+    judul: "One Piece",
+    detail: "Wano Country, Cidre Guild, Uta's Past",
+    pengarang: "Eiichiro Oda",
+    urlGambar: "asdfasdfasdf"
+  }
+  useEffect(() => {
+    penjualCreate(startingState);
+  }, [] );
+
+  //const {judul, details, pengarang, urlGambar}= startingState;
+  //currentBook = {judul, details, pengarang, urlGambar};
+
   return (
     <>
       <div>
@@ -10,35 +38,33 @@ const PenjualCreate = () => {
 
       <div class="mt-10 flex gap-24 justify-between w-full">
         <div class="w-[65%]">
-          <div class="relative flex-grow w-full">
-            <input
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="username"
-              type="text"
-              placeholder="No"
+          <label class="relative flex-grow w-full">
+            <Input
+              name="name"
+              placeholder=""
+              value={values.nama}
+              values={values}
+              setValues={setValues}
             />
-          </div>
+          </label>
           <div class="relative flex-grow w-full mt-5">
-            {" "}
-            {/* <label for="email" class="leading-7 text-sm text-gray-600">Email</label> */}{" "}
-            <input
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="username"
-              type="text"
-              placeholder="Name"
+            <Input
+              name="name"
+              placeholder=""
+              value={values.nama}
+              values={values}
+              setValues={setValues}
             />
           </div>
 
           <div class="relative flex-grow w-full mt-5">
-            {" "}
-            {/* <label for="email" class="leading-7 text-sm text-gray-600">Email</label> */}{" "}
-            <input
-              class="shadow appearance-none border rounded w-full py-12 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="username"
-              type="text"
-              placeholder="Details"
+            <Input
+              name="name"
+              placeholder=""
+              value={values.nama}
+              values={values}
+              setValues={setValues}
             />
-          </div>
         </div>
         <div class="w-[35%] p-4">
           <div className="w-full bg-[#E2E2E2]" style={{ aspectRatio: "1/1" }}>
@@ -68,7 +94,8 @@ const PenjualCreate = () => {
           </div>
         </div>
       </div>
-    </>
+    //</div></>
   );
+  
 };
 export default PenjualCreate;
