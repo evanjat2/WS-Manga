@@ -1,13 +1,15 @@
 const PenjualRead = () => {
   return (
     <>
-      <div class="grid grid-rows-3 grid-flow-col gap-4">
+      <div class="grid grid-rows-3 grid-flow-col gap-2">
         <div className="row-span-3">
           <img
             className="object-cover h-48 w-96"
             src="https://ibb.co/PTg1ztV"
           ></img>
-          <div class="flex items-center">
+          <div className="mt-5">Rating</div>
+
+          <div class="flex items-center mt-5">
             <svg
               aria-hidden="true"
               class="w-5 h-5 text-yellow-400"
@@ -61,6 +63,26 @@ const PenjualRead = () => {
             <p class="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">
               4.95 out of 5
             </p>
+          </div>
+        </div>
+        <div class="row-span-2">
+          <div
+            className="box-border h-60 w-50 p-4 
+                border-4 bg-gray-400 m4"
+          >
+            Detail
+          </div>
+          <div
+            className="box-border h-15 w-50 p-4 mt-2
+                border-4 bg-gray-400 m4"
+          >
+            Director
+          </div>
+          <div
+            className="box-border h-15 w-50 p-4 mt-2
+                border-4 bg-gray-400 m4"
+          >
+            Aktor
           </div>
         </div>
       </div>
