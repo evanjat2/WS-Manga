@@ -9,6 +9,7 @@ import {
   PenjualCreatePage,
   PenjualReadPage,
   PenjualUpdatePage,
+  Cart,
   PenjualDeletePage,
 } from "../src/pages";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
@@ -28,6 +29,7 @@ function App() {
           <Route path="/penjualread" element={<PenjualReadPage />}></Route>
           <Route path="/penjualupdate" element={<PenjualUpdatePage />}></Route>
           <Route path="/penjualdelete" element={<PenjualDeletePage />}></Route>
+          <Route path="/cart" element={<Cart />}></Route>
         </Routes>
       </BrowserRouter>
     </>
