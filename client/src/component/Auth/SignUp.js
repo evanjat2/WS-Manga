@@ -9,6 +9,7 @@ const initialState = {
   name: "",
   email: "",
   password: "",
+  // isMember:true,
 };
 const SignUp = () => {
   const [values, setValues] = useState(initialState);
