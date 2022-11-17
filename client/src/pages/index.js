@@ -8,6 +8,8 @@ import PenjualCreatePage from "./PenjualCreatePage";
 import PenjualReadPage from "./PenjualReadPage";
 import PenjualUpdatePage from "./PenjualUpdatePage";
 import PenjualDeletePage from "./PenjualDeletePage";
+import ProductPage from "./ProductPage";
+import SoldBook from "./SoldBook";
 import Cart from "./Cart";
 import ProductPage from "./ProductPage";
 
@@ -24,4 +26,8 @@ export {
   PenjualDeletePage,
   Cart,
   ProductPage,
+<<<<<<< Updated upstream
+=======
+  SoldBook,
+>>>>>>> Stashed changes
 };
