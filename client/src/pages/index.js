@@ -9,7 +9,7 @@ import PenjualReadPage from "./PenjualReadPage";
 import PenjualUpdatePage from "./PenjualUpdatePage";
 import PenjualDeletePage from "./PenjualDeletePage";
 import ProductPage from "./ProductPage";
-import SoldBook from "./SoldBook";
+import SoldBookPage from "./SoldBookPage";
 import Cart from "./Cart";
 
 export {
@@ -25,5 +25,5 @@ export {
   PenjualDeletePage,
   Cart,
   ProductPage,
-  SoldBook,
+  SoldBookPage,
 };
