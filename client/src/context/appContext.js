@@ -11,15 +11,19 @@ import {
   LOGIN_USER_BEGIN,
   LOGIN_USER_SUCCESS,
   LOGIN_USER_ERROR,
+  LOGUT_USER,
 } from "./actions";
+
+const token = localStorage.getItem('token')
+const user = localStorage.getItem('user')
 
 const initialState = {
   isLoading: false,
   showAlert: false,
   alertText: "",
   alertType: "",
-  user: null,
-  token: null,
+  user: user? JSON.parse(user):null,
+  token: token,
 };
 
 const AppContext = React.createContext();
@@ -36,6 +40,16 @@ const AppProvider = ({ children }) => {
     }, 3000);
   };
 
+  const addUserToLocalStorage = ({ user, token, location }) => {
+    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('token', token);
+  };
+  
+  const removeUserFromLocalStorage = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+  };
+
   const registerUser = async (currentUser) => {
     dispatch({ type: REGISTER_USER_BEGIN });
     try {
@@ -46,7 +60,8 @@ const AppProvider = ({ children }) => {
         type: REGISTER_USER_SUCCESS,
         payload: { user, token },
       });
-      //local storage later
+      addUserToLocalStorage({user, token});
+
     } catch (error) {
       console.log(error.response);
       dispatch({
@@ -67,7 +82,7 @@ const AppProvider = ({ children }) => {
         type: LOGIN_USER_SUCCESS,
         payload: { user, token },
       });
-      //local storage later
+      addUserToLocalStorage({user, token});
     } catch (error) {
       
       dispatch({
@@ -78,8 +93,13 @@ const AppProvider = ({ children }) => {
     clearAlert();
   };
 
+  const logoutUser = () =>{
+    dispatch({ type:LOGOUT_USER })
+    removeUserFromLocalStorage
+  }
+
   return (
-    <AppContext.Provider value={{ ...state, displayAlert, registerUser, loginUser }}>
+    <AppContext.Provider value={{ ...state, displayAlert, registerUser, loginUser, logoutUser }}>
       {children}
     </AppContext.Provider>
   );
