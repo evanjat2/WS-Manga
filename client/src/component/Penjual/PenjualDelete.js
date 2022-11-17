@@ -1,7 +1,7 @@
 const PenjualDelete = () => {
   return (
     <>
-      <div class="px-80 py-20  grid h-screen place-items-center">
+      <div class="px-80 py-20  grid place-items-center text-reemkufiink text-neutral font-bold">
         <img
           className="object-contain h-48 w-30"
           src="https://komikcast.site/wp-content/uploads/2019/07/658v11kdjasfodfasdf-e1565284654247.jpg"
