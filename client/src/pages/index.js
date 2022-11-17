@@ -11,7 +11,6 @@ import PenjualDeletePage from "./PenjualDeletePage";
 import ProductPage from "./ProductPage";
 import SoldBook from "./SoldBook";
 import Cart from "./Cart";
-import ProductPage from "./ProductPage";
 
 export {
   Dashboard,
@@ -26,8 +25,5 @@ export {
   PenjualDeletePage,
   Cart,
   ProductPage,
-<<<<<<< Updated upstream
-=======
   SoldBook,
->>>>>>> Stashed changes
 };

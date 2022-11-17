@@ -11,11 +11,7 @@ import {
   PenjualUpdatePage,
   Cart,
   PenjualDeletePage,
-  ProductPage,
-<<<<<<< Updated upstream
-=======
-  SoldBook,
->>>>>>> Stashed changes
+  SoldBook
 } from "../src/pages";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import ProductPage from "./pages/ProductPage";
@@ -36,12 +32,8 @@ function App() {
           <Route path="/penjualupdate" element={<PenjualUpdatePage />}></Route>
           <Route path="/penjualdelete" element={<PenjualDeletePage />}></Route>
           <Route path="/cart" element={<Cart />}></Route>
-<<<<<<< Updated upstream
-          <Route path="/productpage" element={<ProductPage/>}></Route>
-=======
           <Route path="/productpage" element={<ProductPage />}></Route>
           <Route path="/soldbook" element={<SoldBook />}></Route>
->>>>>>> Stashed changes
         </Routes>
       </BrowserRouter>
     </>
