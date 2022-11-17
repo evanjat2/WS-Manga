@@ -9,22 +9,20 @@ const BooksSchema = new mongoose.Schema({
     maxlength: 50,
     trim: true,
   },
-  penerbit: {
-    type: String,
+  detail: {
+    type: String, 
+    required: [true, "please provide details"],
+    minlength: 15,
+    maxlength: 3000,
   },
   pengarang: {
     type: String,
     required: [true, "please provide author"],
     minlength: 6,
   },
-  jumlahHalaman: {
-    type: Number,
-    min: 0,
-  },
-  tahunTerbit: {
-    type: Number,
-    trim: true,
-    min: 1850,
+  urlGambar: {
+    type: String,
+    required: [true, "please provide picture"]
   },
   istoSell: {
     type: Boolean,

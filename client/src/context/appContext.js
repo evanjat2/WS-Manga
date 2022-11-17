@@ -15,6 +15,9 @@ import {
   UPDATE_USER_BEGIN,
   UPDATE_USER_SUCCESS,
   UPDATE_USER_ERROR,
+  PENJUAL_CREATE_BEGIN, 
+  PENJUAL_CREATE_SUCCESS, 
+  PENJUAL_CREATE_ERROR, 
 } from "./actions";
 
 const token = localStorage.getItem("token");
@@ -27,6 +30,13 @@ const initialState = {
   alertType: "",
   user: user ? JSON.parse(user) : null,
   token: token,
+  isEditing: false, 
+  editBookId: "",
+  judul: "",
+  detail:"",
+  pengarang: "",
+  istoSell:"",
+  owner:"",
 };
 
 const AppContext = React.createContext();
@@ -154,6 +164,27 @@ const AppProvider = ({ children }) => {
     removeUserFromLocalStorage();
   };
 
+  const penjualCreate = async (submittedData) => {
+    dispatch({type: PENJUAL_CREATE_BEGIN});
+    try {
+      const { judul, pengarang, detail, urlGambar } = await axios.post("/api/v1/sell", submittedData,{
+        headers: {
+          Authorization: `Bearer ${state.token}`,
+        },
+      });
+      dispatch({
+        type: PENJUAL_CREATE_SUCCESS,
+        payload: { judul, pengarang, detail, urlGambar },
+      });
+    } catch (error) {
+      dispatch({
+        type: PENJUAL_CREATE_ERROR,
+        payload: { msg: error.response.data.msg },
+      });
+    }
+    clearAlert();
+  }
+
   return (
     <AppContext.Provider
       value={{
@@ -163,6 +194,7 @@ const AppProvider = ({ children }) => {
         loginUser,
         logoutUser,
         updateUser,
+        penjualCreate
       }}
     >
       {children}

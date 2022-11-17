@@ -1,7 +1,7 @@
 const PenjualDelete = () => {
   return (
     <>
-      <div class="px-80 py-20 content-center">
+      <div class="px-80 py-20  grid h-screen place-items-center">
         <img
           className="object-contain h-48 w-30"
           src="https://komikcast.site/wp-content/uploads/2019/07/658v11kdjasfodfasdf-e1565284654247.jpg"
@@ -70,12 +70,12 @@ const PenjualDelete = () => {
 
         <div class="grid grid-rows-3 grid-flow-col gap-4">
           <div className="row-span-3">
-            <button class="mt-40 flex text-white bg-sky-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+            <button class="mt-4 flex text-white bg-sky-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
               Yes
             </button>
           </div>
           <div className="row-span-1">
-            <button class="mt-40 flex text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+            <button class="mt-4 flex text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
               No
             </button>
           </div>
