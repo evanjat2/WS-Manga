@@ -1,8 +1,8 @@
 const PenjualRead = () => {
   return (
     <>
-      <div class="grid grid-rows-3 grid-flow-col gap-2">
-        <div className="row-span-3">
+      <div class=" mt-40 grid grid-rows-3 grid-flow-col gap-2">
+        <div className="row-span-3 pl-40">
           <img
             className="object-cover h-48 w-96"
             src="https://ibb.co/PTg1ztV"
@@ -65,21 +65,21 @@ const PenjualRead = () => {
             </p>
           </div>
         </div>
-        <div class="row-span-2">
+        <div class="row-span-2 pr-30">
           <div
-            className="box-border h-60 w-50 p-4 
+            className="box-border h-60 w-50 
                 border-4 bg-gray-400 m4"
           >
             Detail
           </div>
           <div
-            className="box-border h-15 w-50 p-4 mt-2
+            className="box-border h-15 w-50  mt-2
                 border-4 bg-gray-400 m4"
           >
             Director
           </div>
           <div
-            className="box-border h-15 w-50 p-4 mt-2
+            className="box-border h-15 w-50 mt-2
                 border-4 bg-gray-400 m4"
           >
             Aktor

@@ -8,6 +8,8 @@ import PenjualCreatePage from "./PenjualCreatePage";
 import PenjualReadPage from "./PenjualReadPage";
 import PenjualUpdatePage from "./PenjualUpdatePage";
 import PenjualDeletePage from "./PenjualDeletePage";
+import ProductPage from "./ProductPage";
+import SoldBookPage from "./SoldBookPage";
 import Cart from "./Cart";
 
 export {
@@ -22,4 +24,6 @@ export {
   PenjualUpdatePage,
   PenjualDeletePage,
   Cart,
+  ProductPage,
+  SoldBookPage,
 };
