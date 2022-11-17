@@ -2,7 +2,7 @@ import { useAppContext } from "../../context/appContext";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Foto from "../../assets/images/profil/Foto.png";
-import Input from "./Input";
+import Input from "./Input"
 import { CgProfile } from "react-icons/cg";
 import Alert from "../Alert";
 

@@ -1,5 +1,5 @@
 import { Navbar } from "../component/Layout";
-import PenjualUpdate from "../component/PenjualUpdate";
+import PenjualUpdate from "../component/Penjual/PenjualUpdate";
 const PenjualUpdatePage = () => {
   return (
     <div>
