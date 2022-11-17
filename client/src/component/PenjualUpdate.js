@@ -3,12 +3,12 @@ const PenjualUpdate = () => {
   return (
     <>
       <div>
-        <button class="mt-40 flex text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+        <button class="mt-40 flex text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg text-reemkufiink font-bold">
           Update
         </button>
       </div>
 
-      <div class="mt-10 flex gap-24 justify-between w-full">
+      <div class="mt-10 flex gap-24 justify-between w-full text-reemkufiink font-bold">
         <div class="w-[65%]">
           <div class="relative flex-grow w-full">
             <input

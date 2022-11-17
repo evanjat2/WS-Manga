@@ -1,13 +1,15 @@
 const PenjualRead = () => {
   return (
     <>
-      <div class=" mt-40 grid grid-rows-3 grid-flow-col gap-2">
-        <div className="row-span-3 pl-40">
+      <div class=" mt-40 flex gap-24 w-full">
+        <div className="w-[40%] pl-80 ml-40 grid place-items-center">
           <img
             className="object-cover h-48 w-96"
             src="https://ibb.co/PTg1ztV"
           ></img>
-          <div className="mt-5">Rating</div>
+          <div className="mt-5 text-reemkufiink text-black font-bold">
+            Rating
+          </div>
 
           <div class="flex items-center mt-5">
             <svg
@@ -65,22 +67,22 @@ const PenjualRead = () => {
             </p>
           </div>
         </div>
-        <div class="row-span-2 pr-30">
+        <div className="w-[60%] pr-80 mr-40">
           <div
             className="box-border h-60 w-50 
-                border-4 bg-gray-400 m4"
+                border-4 bg-gray-400 m4 text-reemkufiink text-gray-600 font-bold"
           >
             Detail
           </div>
           <div
             className="box-border h-15 w-50  mt-2
-                border-4 bg-gray-400 m4"
+                border-4 bg-gray-400 m4 text-reemkufiink text-gray-600 font-bold"
           >
             Director
           </div>
           <div
             className="box-border h-15 w-50 mt-2
-                border-4 bg-gray-400 m4"
+                border-4 bg-gray-400 m4text-reemkufiink text-gray-600 font-bold"
           >
             Aktor
           </div>
