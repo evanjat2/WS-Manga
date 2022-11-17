@@ -60,7 +60,7 @@ const Login = () => {
           <label className="block w-full text-[#36447C] font-inter font-bold mt-[15px]">
             <p className="text-xl">Password</p>
             <Input 
-              name="sandi" 
+              name="password" 
               placeholder="" 
               value={values.password}
               values={values}
