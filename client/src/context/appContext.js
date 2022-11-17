@@ -15,9 +15,9 @@ import {
   UPDATE_USER_BEGIN,
   UPDATE_USER_SUCCESS,
   UPDATE_USER_ERROR,
-  PENJUAL_CREATE_BEGIN, 
-  PENJUAL_CREATE_SUCCESS, 
-  PENJUAL_CREATE_ERROR, 
+  CREATE_SELL_BEGIN, 
+  CREATE_SELL_SUCCESS, 
+  CREATE_SELL_ERROR, 
 } from "./actions";
 
 const token = localStorage.getItem("token");
@@ -164,21 +164,21 @@ const AppProvider = ({ children }) => {
     removeUserFromLocalStorage();
   };
 
-  const penjualCreate = async (submittedData) => {
-    dispatch({type: PENJUAL_CREATE_BEGIN});
+  const createSell = async (submittedData) => {
+    dispatch({type: CREATE_SELL_BEGIN});
     try {
-      const { judul, pengarang, detail, urlGambar } = await axios.post("/api/v1/sell", submittedData,{
+      const { data } = await axios.post("/api/v1/sell", submittedData,{
         headers: {
           Authorization: `Bearer ${state.token}`,
         },
       });
       dispatch({
-        type: PENJUAL_CREATE_SUCCESS,
-        payload: { judul, pengarang, detail, urlGambar },
+        type: CREATE_SELL_SUCCESS,
+        payload: { data },
       });
     } catch (error) {
       dispatch({
-        type: PENJUAL_CREATE_ERROR,
+        type: CREATE_SELL_ERROR,
         payload: { msg: error.response.data.msg },
       });
     }
@@ -194,7 +194,7 @@ const AppProvider = ({ children }) => {
         loginUser,
         logoutUser,
         updateUser,
-        penjualCreate
+        createSell
       }}
     >
       {children}

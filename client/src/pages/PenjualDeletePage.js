@@ -1,5 +1,5 @@
 import { Navbar } from "../component/Layout";
-import PenjualDelete from "../component/PenjualDelete";
+import PenjualDelete from "../component/Penjual/PenjualDelete";
 const PenjualDeletePage = () => {
   return (
     <div>

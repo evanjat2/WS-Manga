@@ -1,5 +1,5 @@
 import { Navbar } from "../component/Layout";
-import PenjualRead from "../component/PenjualRead";
+import PenjualRead from "../component/Penjual/PenjualRead";
 const PenjualReadPage = () => {
   return (
     <div>

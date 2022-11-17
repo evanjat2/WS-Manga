@@ -5,13 +5,18 @@ import UnAuthenticatedError from "../errors/unauthenticated.js";
 import NotFoundError from "../errors/not-found.js";
 
 const postBook = async (req, res) => {
-  const { judul, pengarang, detail, urlGambar } = req.body;
+  const { judul, pengarang, detail, urlGambar, owner } = req.body;
 
   if (!judul || !pengarang || !detail || !urlGambar) {
     throw new BadRequestError("Please provide all values");
   }
-  req.body.owner = req.user.userId;
-  const book = await Book.create(req.body);
+  const book = await Book.create({
+    judul,
+    pengarang,
+    detail,
+    urlGambar,
+    owner,
+  });
   res.status(StatusCodes.CREATED).json({ book });
 };
 
