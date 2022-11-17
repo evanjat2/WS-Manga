@@ -4,19 +4,37 @@ const PenjualCreate = () => {
       <>
       <div>
         <button class="mt-40 flex text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Create</button>
-        </div>
-      
+    </div>
+        
+     <div class="mt-10 grid grid-rows-2 grid-flow-col gap-4">
 
-        <div class="mt-10">
+      <div class = "row-span-3">
+
       <div class="relative flex-grow w-full">
-        <label for="full-name" class="leading-7 text-sm text-gray-600">No</label>
-        <input type="text" id="full-name" name="full-name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
+        {/* <label for="full-name" class="leading-7 text-sm text-gray-600">No</label> */}
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="No"/>
       </div>
 
-      <div class="">
-        <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
-        <input type="email" id="email" name="email" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
+      <div class="relative flex-grow w-full mt-5">
+        {/* <label for="email" class="leading-7 text-sm text-gray-600">Email</label> */}
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Name"/>
       </div>
+
+      <div class="relative flex-grow w-full mt-5">
+        {/* <label for="email" class="leading-7 text-sm text-gray-600">Email</label> */}
+        <input class="shadow appearance-none border rounded w-full py-12 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Details"/>
+      </div>
+
+      <div class = "row-span-">
+      <div>
+        <button class="mt-40 flex text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Create</button>
+    </div>
+    
+      </div>
+
+      </div>
+
+      
       
       </div>
       
