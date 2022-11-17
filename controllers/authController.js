@@ -52,15 +52,16 @@ const login = async (req, res) => {
   res.status(StatusCodes.OK).json({ user, token });
 };
 const updateUser = async (req, res) => {
-  const { email, name, lastName } = req.body;
-  if (!email || !name || !lastName) {
+  const { email, name, NoHP, gender } = req.body;
+  if (!email || !name ) {
     throw new BadRequestError("Please provide all value");
   }
 
   const user = await User.findOne({ _id: req.user.userId });
   user.email = email;
   user.name = name;
-  user.lastName = lastName;
+  user.NoHP = NoHP;
+  user.gender = gender;
 
   await user.save();
   const token = user.createJWT();

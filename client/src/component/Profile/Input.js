@@ -10,7 +10,6 @@ const Input = ({ label, value, setValue }) => {
         name="name"
         className="bg-[#FEE6B4] border-2 rounded-lg border-[#6A6A6A] px-4 text-[#6A6A6A]"
         value={value}
-        placeholder={value}
         onChange={handleChange}
       />
     </label>
