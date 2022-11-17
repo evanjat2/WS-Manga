@@ -6,7 +6,9 @@ const Navbar = () => {
       <div className="flex justify-between">
         <img src={wsmanga} className="h-[30px]"></img>
         <div className="flex justify-between gap-8 font-bold text-blue">
-          <p className="hover:text-orange cursor-pointer">Wishlist</p>
+          <a href="/wishlist">
+            <p className="hover:text-orange cursor-pointer">Wishlist</p>
+          </a>
           <p className="hover:text-orange cursor-pointer">My Cart</p>
           <p className="hover:text-orange cursor-pointer">Home</p>
         </div>

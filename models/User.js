@@ -25,11 +25,17 @@ const UserSchema = new mongoose.Schema({
     minlength: 6,
     select: false,
   },
-  lastName: {
+  NoHP: {
     type: String,
     trim: true,
     maxlength: 20,
-    default: 'lastName',
+    default: '',
+  },
+  gender: {
+    type: String,
+    trim: true,
+    maxlength: 20,
+    default: '',
   },
 })
 

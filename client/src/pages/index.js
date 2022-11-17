@@ -6,6 +6,8 @@ import ProfilePage from "./ProfilePage";
 import WishlistPage from "./WishlistPage";
 import PenjualCreatePage from "./PenjualCreatePage";
 import PenjualReadPage from "./PenjualReadPage";
+import PenjualUpdatePage from "./PenjualUpdatePage";
+import PenjualDeletePage from "./PenjualDeletePage";
 
 export {
   Dashboard,
@@ -16,4 +18,6 @@ export {
   WishlistPage,
   PenjualCreatePage,
   PenjualReadPage,
+  PenjualUpdatePage,
+  PenjualDeletePage,
 };

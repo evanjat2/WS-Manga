@@ -1,13 +1,13 @@
 import { Navbar } from "../component/Layout";
-import { Profile } from "../component/Profile";
-const ProfilePage = () => {
+import PenjualUpdate from "../component/PenjualUpdate";
+const PenjualUpdatePage = () => {
   return (
-    <div className="bg-cream">
+    <div>
       <Navbar />
       <div className="min-h-screen mt-[60px] px-[40px]">
-        <Profile />
+        <PenjualUpdate />
       </div>
     </div>
   );
 };
-export default ProfilePage;
+export default PenjualUpdatePage;

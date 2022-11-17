@@ -8,6 +8,8 @@ import {
   WishlistPage,
   PenjualCreatePage,
   PenjualReadPage,
+  PenjualUpdatePage,
+  PenjualDeletePage,
 } from "../src/pages";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
@@ -24,6 +26,8 @@ function App() {
           <Route path="/penjualcreate" element={<PenjualCreatePage />}></Route>
           <Route path="/wishlist" element={<WishlistPage />}></Route>
           <Route path="/penjualread" element={<PenjualReadPage />}></Route>
+          <Route path="/penjualupdate" element={<PenjualUpdatePage />}></Route>
+          <Route path="/penjualdelete" element={<PenjualDeletePage />}></Route>
         </Routes>
       </BrowserRouter>
     </>
