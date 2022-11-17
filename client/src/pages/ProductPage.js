@@ -1,11 +1,15 @@
-import React from 'react'
-import { Navbar } from '../component/Layout'
+import { Navbar } from "../component/Layout";
+import Product from "../component/Product";
 
 const ProductPage = () => {
-  return (
-    <div className='bg-cream'>
-        ProductPage</div>
-  )
-}
-
-export default ProductPage
+    return (
+      <div>
+        <Navbar />
+        <div className="min-h-screen mt-[60px] px-[40px]">
+          <Product/>
+        </div>
+      </div>
+    );
+  };
+  export default ProductPage;
+  

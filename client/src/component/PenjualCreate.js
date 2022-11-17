@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Input from "./Input";
+import Input from "./Auth/Input";
 import { useAppContext } from "../context/appContext";
 import { BsImages } from "react-icons/bs";
 

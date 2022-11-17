@@ -11,10 +11,10 @@ import {
   PenjualUpdatePage,
   Cart,
   PenjualDeletePage,
-  ProductPage,
 } from "../src/pages";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import ProductPage from "./pages/ProductPage";
+import SoldBookPage from "./pages/SoldBookPage";
 
 function App() {
   return (
@@ -32,7 +32,8 @@ function App() {
           <Route path="/penjualupdate" element={<PenjualUpdatePage />}></Route>
           <Route path="/penjualdelete" element={<PenjualDeletePage />}></Route>
           <Route path="/cart" element={<Cart />}></Route>
-          <Route path="/productpage" element={<ProductPage/>}></Route>
+          <Route path="/product" element={<ProductPage />}></Route>
+          <Route path="/soldbook" element={<SoldBookPage />}></Route>
         </Routes>
       </BrowserRouter>
     </>
