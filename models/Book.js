@@ -5,20 +5,20 @@ const BooksSchema = new mongoose.Schema({
   judul: {
     type: String,
     required: [true, "please provide title"],
-    minlength: 3,
+    minlength: 1,
     maxlength: 50,
     trim: true,
   },
   detail: {
     type: String, 
     required: [true, "please provide details"],
-    minlength: 15,
+    minlength: 1,
     maxlength: 3000,
   },
   pengarang: {
     type: String,
     required: [true, "please provide author"],
-    minlength: 6,
+    minlength: 1,
   },
   urlGambar: {
     type: String,
@@ -30,8 +30,10 @@ const BooksSchema = new mongoose.Schema({
   },
   owner: {
     type: mongoose.Types.ObjectId,
-    ref: "User",
-    required: [true, "Please provide owner"],
+    // ref: "User",
+    // required: [true, "Please provide owner"],
+    // type: String,
+    required: [true, "please provide owner"]
   },
 });
 

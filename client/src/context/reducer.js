@@ -11,9 +11,9 @@ import {
   UPDATE_USER_BEGIN,
   UPDATE_USER_SUCCESS,
   UPDATE_USER_ERROR,
-  PENJUAL_CREATE_BEGIN,
-  PENJUAL_CREATE_SUCCESS,
-  PENJUAL_CREATE_ERROR,
+  CREATE_SELL_BEGIN,
+  CREATE_SELL_SUCCESS,
+  CREATE_SELL_ERROR,
 } from "./actions";
 
 import { initialState } from "./appContext";
@@ -112,21 +112,19 @@ const reducer = (state, action) => {
       alertText: action.payload.msg,
     };
   }
-  if (action.type === PENJUAL_CREATE_BEGIN) {
+  if (action.type === CREATE_SELL_BEGIN) {
     return { ...state, isLoading: true };
   }
-  if (action.type === PENJUAL_CREATE_SUCCESS) {
+  if (action.type === CREATE_SELL_SUCCESS) {
     return {
       ...state,
       isLoading: false,
-      token: action.payload.token,
-      user: action.payload.user,
       showAlert: true,
       alertType: "success",
-      alertText: "User Profile Updated!",
+      alertText: "Berhasil menambah buku!",
     };
   }
-  if (action.type === PENJUAL_CREATE_ERROR) {
+  if (action.type === CREATE_SELL_ERROR) {
     return {
       ...state,
       isLoading: false,

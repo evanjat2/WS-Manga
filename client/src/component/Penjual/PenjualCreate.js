@@ -1,20 +1,32 @@
 import { useState } from "react";
-import { BsImages } from "react-icons/bs";
+
+import { useAppContext } from "../../context/appContext";
+import Alert from "../Alert";
 import Input from "./Input";
+
+import { BsImages } from "react-icons/bs";
+
 const PenjualCreate = () => {
+  const { createSell, showAlert, user } = useAppContext();
   const [judul, setJudul] = useState("");
   const [pengarang, setPengarang] = useState("");
   const [detail, setDetail] = useState("");
+  const [urlGambar, setUrlGambar] = useState("dummy");
+
   const onSubmit = (e) => {
     e.preventDefault();
     if (!judul || !pengarang || !detail) {
       console.log("Judul, Pengarang, dan Detail tidak boleh kosong!");
       return;
     }
-    console.log(judul, pengarang, detail);
+    const owner = user._id;
+    console.log(owner)
+    createSell({ judul, pengarang, detail, urlGambar, owner});
+    
   };
   return (
     <>
+      {showAlert && <Alert />}
       <form onSubmit={onSubmit}>
         <button
           type="submit"
