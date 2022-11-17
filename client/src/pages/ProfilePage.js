@@ -1,10 +1,10 @@
 import { Navbar } from "../component/Layout";
-import Profile from "../component/Profile";
+import { Profile } from "../component/Profile";
 const ProfilePage = () => {
   return (
-    <div>
+    <div className="bg-cream">
       <Navbar />
-      <div className="h-[200vh] mt-[60px] px-[40px]">
+      <div className="min-h-screen mt-[60px] px-[40px]">
         <Profile />
       </div>
     </div>
