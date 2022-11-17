@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { Navbar } from "../component/Layout";
-
+import Cover from "../component/Landing/Cover";
 const Landing = () => {
   return (
     <>
       <Navbar />
-      <div className="h-[200vh] mt-[60px] px-[40px]">Aaaaaaaaa</div>
+      <div className="mt-[60px]"><Cover/></div>
     </>
   );
 };
