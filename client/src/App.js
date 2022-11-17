@@ -6,10 +6,10 @@ import {
   SignUpPage,
   ProfilePage,
   WishlistPage,
+  PenjualCreatePage,
+  PenjualReadPage,
 } from "../src/pages";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import PenjualCreate from "./pages/PenjualCreatePage";
-
 
 function App() {
   return (
@@ -21,10 +21,9 @@ function App() {
           <Route path="/login" element={<LoginPage />}></Route>
           <Route path="/signup" element={<SignUpPage />}></Route>
           <Route path="/profile" element={<ProfilePage />}></Route>
-          <Route path="/PenjualCreate" element={<PenjualCreate />}></Route>
-
-
+          <Route path="/penjualcreate" element={<PenjualCreatePage />}></Route>
           <Route path="/wishlist" element={<WishlistPage />}></Route>
+          <Route path="/penjualread" element={<PenjualReadPage />}></Route>
         </Routes>
       </BrowserRouter>
     </>

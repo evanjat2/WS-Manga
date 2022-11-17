@@ -57,7 +57,7 @@ const AppProvider = ({ children }) => {
     clearAlert();
   };
 
-  const loginUser = async (curentUser) => {
+  const loginUser = async (currentUser) => {
     dispatch({ type: LOGIN_USER_BEGIN });
     try {
       const {data} = await axios.post("/api/v1/auth/login", currentUser);
@@ -79,7 +79,7 @@ const AppProvider = ({ children }) => {
   };
 
   return (
-    <AppContext.Provider value={{ ...state, displayAlert, registerUser }}>
+    <AppContext.Provider value={{ ...state, displayAlert, registerUser, loginUser }}>
       {children}
     </AppContext.Provider>
   );

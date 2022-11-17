@@ -1,13 +1,13 @@
 import { Navbar } from "../component/Layout";
-import PenjualCreate from "../component/PenjualCreate";
-const PenjualCreatePage = () => {
+import PenjualRead from "../component/PenjualRead";
+const PenjualReadPage = () => {
   return (
     <div>
       <Navbar />
       <div className="min-h-screen mt-[60px] px-[40px]">
-        <PenjualCreate />
+        <PenjualRead />
       </div>
     </div>
   );
 };
-export default PenjualCreatePage;
+export default PenjualReadPage;
