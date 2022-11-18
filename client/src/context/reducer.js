@@ -204,7 +204,7 @@ const reducer = (state, action) => {
       alertText: action.payload.msg,
     };
   }
-  if (action.type === DELETE_JOB_BEGIN) {
+  if (action.type === DELETE_SELL_BEGIN) {
     return { ...state, isLoading: true };
   }
   throw new Error(`no such action: ${action.type}`);
