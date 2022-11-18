@@ -17,11 +17,11 @@ const Navbar = () => {
       <div className="flex justify-between">
         <img src={wsmanga} className="h-[30px]"></img>
         <div className="flex justify-between gap-8 font-bold text-blue">
-          <a href="/wishlist">
-            <p className="hover:text-orange cursor-pointer">Wishlist</p>
+          <a href="/profile">
+            <p className="hover:text-orange cursor-pointer">Profil</p>
           </a>
           <p className="hover:text-orange cursor-pointer">My Cart</p>
-          <p className="hover:text-orange cursor-pointer">Home</p>
+          <a href="/"><p className="hover:text-orange cursor-pointer">Home</p></a>
         </div>
       </div>
     </div>
