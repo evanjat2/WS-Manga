@@ -3,7 +3,7 @@ import Input from "./Input";
 import AuthButton from "./AuthButton";
 import { useAppContext } from "../../context/appContext";
 import Alert from "../Alert";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const initialState = {
   name: "",
@@ -78,7 +78,7 @@ const SignUp = () => {
           </label>
           <label className="block w-full text-[#36447C] font-inter font-bold mt-[15px]">
             <p className="text-xl">Confirm Password</p>
-            <Input name="sandi" placeholder="" />
+            <Input name="password" placeholder="" />
           </label>
         </div>
         <AuthButton name="Sign Up" />
