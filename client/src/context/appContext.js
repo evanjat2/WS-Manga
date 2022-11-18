@@ -15,11 +15,19 @@ import {
   UPDATE_USER_BEGIN,
   UPDATE_USER_SUCCESS,
   UPDATE_USER_ERROR,
+  CLEAR_VALUES,
   CREATE_SELL_BEGIN,
   CREATE_SELL_SUCCESS,
   CREATE_SELL_ERROR,
   GET_SELL_BEGIN,
   GET_SELL_SUCCESS,
+  SET_UPDATE_SELL,
+  UPDATE_SELL_BEGIN,
+  UPDATE_SELL_SUCCESS,
+  UPDATE_SELL_ERROR,
+  DELETE_SELL_BEGIN,
+  DELETE_SELL_SUCCESS,
+  DELETE_SELL_ERROR
 } from "./actions";
 
 const token = localStorage.getItem("token");
@@ -170,6 +178,10 @@ const AppProvider = ({ children }) => {
     removeUserFromLocalStorage();
   };
 
+  const clearValues = () => {
+    dispatch({type: CLEAR_VALUES})
+  }
+
   const createSell = async (submittedData) => {
     dispatch({ type: CREATE_SELL_BEGIN });
     try {
@@ -182,6 +194,7 @@ const AppProvider = ({ children }) => {
         type: CREATE_SELL_SUCCESS,
         payload: { data },
       });
+      dispatch({type: CLEAR_VALUES})
     } catch (error) {
       dispatch({
         type: CREATE_SELL_ERROR,
@@ -205,6 +218,46 @@ const AppProvider = ({ children }) => {
     }
     clearAlert();
   };
+
+  const setUpdateSell = (id) => {
+    dispatch({ type: SET_UPDATE_SELL, payload: { id } })
+  }
+
+  const updateSell = async (submittedData) => {
+    dispatch({ type: UPDATE_SELL_BEGIN });
+    try {
+      const { book } = await axios.patch("/api/v1/sell", submittedData, {
+        headers: {
+          Authorization: `Bearer ${state.token}`,
+        },
+      });
+      dispatch({
+        type: UPDATE_SELL_SUCCESS,
+        payload: { book },
+      });
+      dispatch({type: CLEAR_VALUES})
+    } catch (error) {
+      dispatch({
+        type: UPDATE_SELL_ERROR,
+        payload: { msg: error.response.data.msg },
+      });
+    }
+    clearAlert();
+  }
+
+  const deleteSell = async (id) => {
+    dispatch({ type: DELETE_SELL_BEGIN });
+  try {
+    await axios.delete(`/api/v1/sell/${id}`, {
+      headers: {
+        Authorization: `Bearer ${state.token}`,
+      },
+    });
+  } catch (error) {
+    console.log("error: can't delete sell");
+  }
+  }
+
   return (
     <AppContext.Provider
       value={{
@@ -214,8 +267,12 @@ const AppProvider = ({ children }) => {
         loginUser,
         logoutUser,
         updateUser,
+        clearValues,
         createSell,
         getAllSell,
+        setUpdateSell, 
+        deleteSell,
+        updateSell
       }}
     >
       {children}
