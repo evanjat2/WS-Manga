@@ -51,6 +51,64 @@ const DaftarPenjualan = () => {
           ))}
         </div>
       </div>
+
+      <div className="mt-12 px-[40px]">
+        <div className="flex justify-between font-inter text-blue font-bold ">
+          <p className="cursor-pointer">Daftar Wishlist</p>
+          <p className="cursor-pointer">Show All</p>
+        </div>
+        <div className="flex gap-4 justify-center mt-4">
+          {list?.map((l) => (
+            <IKContext
+              className="block"
+              publicKey="public_cxe4KroklYkjkJ7Mtp3RYC/mFro="
+              urlEndpoint="https://ik.imagekit.io/evanaj"
+              transformationPosition="path"
+              authenticationEndpoint="http://www.yourserver.com/auth"
+            >
+              <IKImage
+                className="block"
+                path="/1.png"
+                transformation={[
+                  {
+                    height: "327",
+                    width: "216",
+                  },
+                ]}
+              />
+            </IKContext>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-12 px-[40px]">
+        <div className="flex justify-between font-inter text-blue font-bold ">
+          <p className="cursor-pointer">My Cartpage</p>
+          <p className="cursor-pointer">Show All</p>
+        </div>
+        <div className="flex gap-4 justify-center mt-4">
+          {list?.map((l) => (
+            <IKContext
+              className="block"
+              publicKey="public_cxe4KroklYkjkJ7Mtp3RYC/mFro="
+              urlEndpoint="https://ik.imagekit.io/evanaj"
+              transformationPosition="path"
+              authenticationEndpoint="http://www.yourserver.com/auth"
+            >
+              <IKImage
+                className="block"
+                path="/1.png"
+                transformation={[
+                  {
+                    height: "327",
+                    width: "216",
+                  },
+                ]}
+              />
+            </IKContext>
+          ))}
+        </div>
+      </div>
     </>
   );
 };
