@@ -29,16 +29,16 @@ const DaftarPenjualan = () => {
           <p className="cursor-pointer">Show All</p>
         </div>
         <div className="flex gap-4 justify-center mt-4">
-        {list?.map((l) => (
+          {list?.map((l) => (
             <IKContext
-            className="block"
+              className="block"
               publicKey="public_cxe4KroklYkjkJ7Mtp3RYC/mFro="
               urlEndpoint="https://ik.imagekit.io/evanaj"
               transformationPosition="path"
               authenticationEndpoint="http://www.yourserver.com/auth"
             >
               <IKImage
-              className="block"
+                className="block"
                 path="/1.png"
                 transformation={[
                   {
@@ -48,7 +48,7 @@ const DaftarPenjualan = () => {
                 ]}
               />
             </IKContext>
-        ))}
+          ))}
         </div>
       </div>
     </>
