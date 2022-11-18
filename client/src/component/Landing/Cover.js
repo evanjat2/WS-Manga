@@ -2,7 +2,7 @@ import poster from "../../assets/images/landing/poster.png";
 import name from "../../assets/images/landing/name.png";
 const Cover = () => {
   return (
-    <div className="h-screen w-screen relative font-inter text-white">
+    <div className="h-screen w-screen relative font-inter text-white overflow-hidden">
       <img src={poster}></img>
       <div className="absolute gap-4 w-screen h-screen top-0 grid content-center px-[40px]">
         <img src={name}></img>

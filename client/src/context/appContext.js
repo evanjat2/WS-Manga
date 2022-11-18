@@ -15,9 +15,11 @@ import {
   UPDATE_USER_BEGIN,
   UPDATE_USER_SUCCESS,
   UPDATE_USER_ERROR,
-  CREATE_SELL_BEGIN, 
-  CREATE_SELL_SUCCESS, 
-  CREATE_SELL_ERROR, 
+  CREATE_SELL_BEGIN,
+  CREATE_SELL_SUCCESS,
+  CREATE_SELL_ERROR,
+  GET_SELL_BEGIN,
+  GET_SELL_SUCCESS,
 } from "./actions";
 
 const token = localStorage.getItem("token");
@@ -30,13 +32,13 @@ const initialState = {
   alertType: "",
   user: user ? JSON.parse(user) : null,
   token: token,
-  isEditing: false, 
+  isEditing: false,
   editBookId: "",
   judul: "",
-  detail:"",
+  detail: "",
   pengarang: "",
-  istoSell:"",
-  owner:"",
+  istoSell: "",
+  owner: "",
 };
 
 const AppContext = React.createContext();
@@ -137,11 +139,15 @@ const AppProvider = ({ children }) => {
     console.log(state.token);
     dispatch({ type: UPDATE_USER_BEGIN });
     try {
-      const { data } = await axios.patch("/api/v1/auth/updateUser", currentUser, {
-        headers: {
-          Authorization: `Bearer ${state.token}`,
-        },
-      });
+      const { data } = await axios.patch(
+        "/api/v1/auth/updateUser",
+        currentUser,
+        {
+          headers: {
+            Authorization: `Bearer ${state.token}`,
+          },
+        }
+      );
       const { user, token } = data;
       dispatch({
         type: UPDATE_USER_SUCCESS,
@@ -165,9 +171,9 @@ const AppProvider = ({ children }) => {
   };
 
   const createSell = async (submittedData) => {
-    dispatch({type: CREATE_SELL_BEGIN});
+    dispatch({ type: CREATE_SELL_BEGIN });
     try {
-      const { data } = await axios.post("/api/v1/sell", submittedData,{
+      const { data } = await axios.post("/api/v1/sell", submittedData, {
         headers: {
           Authorization: `Bearer ${state.token}`,
         },
@@ -183,8 +189,22 @@ const AppProvider = ({ children }) => {
       });
     }
     clearAlert();
-  }
+  };
 
+  const getAllSell = async () => {
+    dispatch({ type: GET_SELL_BEGIN });
+    try {
+      const { data } = await axios.get("/api/v1/sell/all");
+      // const { book } = data;
+      dispatch({
+        type: GET_SELL_SUCCESS,
+        payload: { data },
+      });
+    } catch (error) {
+      console.log("Error");
+    }
+    clearAlert();
+  };
   return (
     <AppContext.Provider
       value={{
@@ -194,7 +214,8 @@ const AppProvider = ({ children }) => {
         loginUser,
         logoutUser,
         updateUser,
-        createSell
+        createSell,
+        getAllSell,
       }}
     >
       {children}

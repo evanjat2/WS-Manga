@@ -14,6 +14,8 @@ import {
   CREATE_SELL_BEGIN,
   CREATE_SELL_SUCCESS,
   CREATE_SELL_ERROR,
+  GET_SELL_BEGIN,
+  GET_SELL_SUCCESS,
 } from "./actions";
 
 import { initialState } from "./appContext";
@@ -131,6 +133,16 @@ const reducer = (state, action) => {
       showAlert: true,
       alertType: "danger",
       alertText: action.payload.msg,
+    };
+  }
+  if (action.type === GET_SELL_BEGIN) {
+    return { ...state, isLoading: true };
+  }
+  if (action.type === GET_SELL_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      sell: action.payload.data,
     };
   }
   throw new Error(`no such action: ${action.type}`);
