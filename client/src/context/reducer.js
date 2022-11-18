@@ -16,6 +16,13 @@ import {
   CREATE_SELL_ERROR,
   GET_SELL_BEGIN,
   GET_SELL_SUCCESS,
+  UPDATE_SELL_BEGIN,
+  UPDATE_SELL_SUCCESS,
+  UPDATE_SELL_ERROR,
+  SET_UPDATE_SELL,
+  DELETE_SELL_BEGIN,
+  DELETE_SELL_SUCCESS,
+  DELETE_SELL_ERROR
 } from "./actions";
 
 import { initialState } from "./appContext";
@@ -114,6 +121,21 @@ const reducer = (state, action) => {
       alertText: action.payload.msg,
     };
   }
+  if (action.type === CLEAR_VALUES){
+    const initialState = {
+      isEditing: false,
+      editBookId: "",
+      judul: "",
+      detail: "",
+      pengarang: "",
+      istoSell: "",
+      owner: "",
+    };
+    return {
+      ...state,
+      ...initialState,
+    }
+  }
   if (action.type === CREATE_SELL_BEGIN) {
     return { ...state, isLoading: true };
   }
@@ -144,6 +166,45 @@ const reducer = (state, action) => {
       isLoading: false,
       sell: action.payload.data,
     };
+  }
+  if (action.type === SET_UPDATE_SELL){
+    const book = action.payload.data.book.find((book) => book.id === action.payload.id);
+    const { _id, judul, pengarang, detail, urlGambar} = book;
+    return {
+      ...state,
+      isEditing: true, 
+      editBookId: _id,
+      judul, 
+      pengarang,
+      detail,
+      urlGambar
+    };
+  }
+  if (action.type === UPDATE_SELL_BEGIN) {
+    return { ...state, isLoading: true };
+  }
+  if (action.type === UPDATE_SELL_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      token: action.payload.token,
+      user: action.payload.user,
+      showAlert: true,
+      alertType: "success",
+      alertText: "Berhasil Meng-update buku!",
+    };
+  }
+  if (action.type === UPDATE_SELL_ERROR) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: "danger",
+      alertText: action.payload.msg,
+    };
+  }
+  if (action.type === DELETE_JOB_BEGIN) {
+    return { ...state, isLoading: true };
   }
   throw new Error(`no such action: ${action.type}`);
 };
