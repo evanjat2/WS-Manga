@@ -1,8 +1,8 @@
 const PenjualRead = () => {
   return (
     <>
-      <div class=" mt-40 flex gap-24 w-full">
-        <div className="w-[40%] pl-80 ml-40 grid place-items-center">
+      <div className=" mt-40 md:flex gap-24 grid place-items-center  ">
+        <div className="w-[40%] pl-30 mx-20 grid place-items-center">
           <img
             className="object-cover h-48 w-96"
             src="https://ibb.co/PTg1ztV"
@@ -67,7 +67,7 @@ const PenjualRead = () => {
             </p>
           </div>
         </div>
-        <div className="w-[60%] pr-80 mr-40">
+        <div className="w-[60%] pr-40 mr-20 md">
           <div
             className="box-border h-60 w-50 
                 border-4 bg-gray-400 m4 text-reemkufiink text-gray-600 font-bold"
