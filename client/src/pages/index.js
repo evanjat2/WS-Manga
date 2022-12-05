@@ -1,4 +1,3 @@
-import Dashboard from "./Dashboard";
 import Landing from "./Landing";
 import LoginPage from "./LoginPage";
 import SignUpPage from "./SignUpPage";
@@ -12,9 +11,9 @@ import ProductPage from "./ProductPage";
 import SoldBookPage from "./SoldBookPage";
 import ForgotPage from "./ForgotPage";
 import Cart from "./Cart";
+import SellDashboardPage from "./SellDashboardPage";
 
 export {
-  Dashboard,
   Landing,
   LoginPage,
   SignUpPage,
@@ -28,4 +27,5 @@ export {
   ProductPage,
   SoldBookPage,
   ForgotPage,
+  SellDashboardPage
 };

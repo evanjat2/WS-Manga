@@ -24,6 +24,7 @@ const getOwnedBook = async (req, res) => {
   const book = await Book.find({ owner: req.user.userId, istoSell: true });
   res.status(StatusCodes.OK).json({ book, totalBooks: book.length });
 };
+
 const getBook = async (req, res) => {
   const book = await Book.find({ istoSell: true });
   res.status(StatusCodes.OK).json({ book, totalBooks: book.length });

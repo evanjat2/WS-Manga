@@ -22,16 +22,19 @@ import {
   GET_SELL_BEGIN,
   GET_SELL_SUCCESS,
   SET_UPDATE_SELL,
-  UPDATE_SELL_BEGIN,
-  UPDATE_SELL_SUCCESS,
-  UPDATE_SELL_ERROR,
-  DELETE_SELL_BEGIN,
-  DELETE_SELL_SUCCESS,
-  DELETE_SELL_ERROR
+  UPDATE_BOOK_BEGIN,
+  UPDATE_BOOK_SUCCESS,
+  UPDATE_BOOK_ERROR,
+  DELETE_BOOK_BEGIN,
+  DELETE_BOOK_SUCCESS,
+  DELETE_BOOK_ERROR,
+  GET_OWNED_BOOK_SUCCESS,
+  CHOOSE_BOOK,
 } from "./actions";
 
 const token = localStorage.getItem("token");
 const user = localStorage.getItem("user");
+const choosedBook = localStorage.getItem("choosedBook");
 
 const initialState = {
   isLoading: false,
@@ -47,18 +50,21 @@ const initialState = {
   pengarang: "",
   istoSell: "",
   owner: "",
+  ownedBook: [],
+  choosedBook: choosedBook ? JSON.parse(choosedBook) : null,
 };
 
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+
   // axios
   const authFetch = axios.create({
     baseURL: "/api/v1",
   });
-  // request
 
+  // request
   authFetch.interceptors.request.use(
     (config) => {
       config.headers.common["Authorization"] = `Bearer ${state.token}`;
@@ -179,8 +185,8 @@ const AppProvider = ({ children }) => {
   };
 
   const clearValues = () => {
-    dispatch({type: CLEAR_VALUES})
-  }
+    dispatch({ type: CLEAR_VALUES });
+  };
 
   const createSell = async (submittedData) => {
     dispatch({ type: CREATE_SELL_BEGIN });
@@ -194,7 +200,7 @@ const AppProvider = ({ children }) => {
         type: CREATE_SELL_SUCCESS,
         payload: { data },
       });
-      dispatch({type: CLEAR_VALUES})
+      dispatch({ type: CLEAR_VALUES });
     } catch (error) {
       dispatch({
         type: CREATE_SELL_ERROR,
@@ -208,7 +214,6 @@ const AppProvider = ({ children }) => {
     dispatch({ type: GET_SELL_BEGIN });
     try {
       const { data } = await axios.get("/api/v1/sell/all");
-      // const { book } = data;
       dispatch({
         type: GET_SELL_SUCCESS,
         payload: { data },
@@ -219,44 +224,64 @@ const AppProvider = ({ children }) => {
     clearAlert();
   };
 
-  const setUpdateSell = (id) => {
-    dispatch({ type: SET_UPDATE_SELL, payload: { id } })
-  }
-
-  const updateSell = async (submittedData) => {
-    dispatch({ type: UPDATE_SELL_BEGIN });
+  const getOwnedBook = async () => {
     try {
-      const { book } = await axios.patch("/api/v1/sell", submittedData, {
+      const { data } = await axios.get("/api/v1/sell", {
+        headers: {
+          Authorization: `Bearer ${state.token}`,
+        },
+      });
+      const { book, totalBooks } = data;
+      dispatch({
+        type: GET_OWNED_BOOK_SUCCESS,
+        payload: { data },
+      });
+      console.log(book);
+    } catch (error) {
+      console.log("Error");
+    }
+  };
+
+  const chooseBook = (book) => {
+    dispatch({ type: CHOOSE_BOOK, payload: { book } });
+    localStorage.removeItem("choosedBook");
+    localStorage.setItem("choosedBook", JSON.stringify(book));
+  };
+
+  const setUpdateSell = (id) => {
+    dispatch({ type: SET_UPDATE_SELL, payload: { id } });
+  };
+
+  const deleteBook = async (id) => {
+    dispatch({ type: DELETE_BOOK_BEGIN });
+    try {
+      await axios.delete(`/api/v1/sell/${id}`, {
+        headers: {
+          Authorization: `Bearer ${state.token}`,
+        },
+      });
+      dispatch({ type: DELETE_BOOK_SUCCESS });
+    } catch (error) {
+      console.log("error: can't delete book");
+    }
+    clearAlert();
+  };
+
+  const updateBook = async (submittedData) => {
+    dispatch({ type: UPDATE_BOOK_BEGIN });
+    try {
+      const { _id } = submittedData;
+      await axios.patch(`/api/v1/sell/${_id}`, submittedData, {
         headers: {
           Authorization: `Bearer ${state.token}`,
         },
       });
       dispatch({
-        type: UPDATE_SELL_SUCCESS,
-        payload: { book },
+        type: UPDATE_BOOK_SUCCESS,
       });
-      dispatch({type: CLEAR_VALUES})
-    } catch (error) {
-      dispatch({
-        type: UPDATE_SELL_ERROR,
-        payload: { msg: error.response.data.msg },
-      });
-    }
+    } catch (error) {}
     clearAlert();
-  }
-
-  const deleteSell = async (id) => {
-    dispatch({ type: DELETE_SELL_BEGIN });
-  try {
-    await axios.delete(`/api/v1/sell/${id}`, {
-      headers: {
-        Authorization: `Bearer ${state.token}`,
-      },
-    });
-  } catch (error) {
-    console.log("error: can't delete sell");
-  }
-  }
+  };
 
   return (
     <AppContext.Provider
@@ -270,9 +295,12 @@ const AppProvider = ({ children }) => {
         clearValues,
         createSell,
         getAllSell,
-        setUpdateSell, 
-        deleteSell,
-        updateSell
+        setUpdateSell,
+        deleteBook,
+        getOwnedBook,
+        chooseBook,
+        updateBook,
+        deleteBook,
       }}
     >
       {children}

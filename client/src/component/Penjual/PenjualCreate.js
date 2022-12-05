@@ -22,7 +22,6 @@ const PenjualCreate = () => {
     const owner = user._id;
     console.log(owner)
     createSell({ judul, pengarang, detail, urlGambar, owner});
-    
   };
   return (
     <>
