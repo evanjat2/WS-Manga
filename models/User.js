@@ -37,6 +37,10 @@ const UserSchema = new mongoose.Schema({
     maxlength: 20,
     default: '',
   },
+  urlGambar: {
+    type: String,
+    default: '1.png',
+  },
 })
 
 UserSchema.pre('save', async function () {

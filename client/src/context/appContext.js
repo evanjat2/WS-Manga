@@ -52,6 +52,9 @@ const initialState = {
   owner: "",
   ownedBook: [],
   choosedBook: choosedBook ? JSON.parse(choosedBook) : null,
+  urlEndpoint: process.env.REACT_APP_URL_ENDPOINT,
+  publicKey: process.env.REACT_APP_PUBLIC_KEY,
+  authenticationEndpoint: process.env.REACT_APP_AUTHENTICATION_ENDPOINT,
 };
 
 const AppContext = React.createContext();
@@ -150,7 +153,6 @@ const AppProvider = ({ children }) => {
   };
 
   const updateUser = async (currentUser) => {
-    console.log(state.token);
     dispatch({ type: UPDATE_USER_BEGIN });
     try {
       const { data } = await axios.patch(

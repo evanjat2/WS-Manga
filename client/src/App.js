@@ -20,7 +20,7 @@ import SoldBookPage from "./pages/SoldBookPage";
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename='/'>
         <Routes>
           <Route path="/" element={<Landing />}></Route>
           <Route path="/login" element={<LoginPage />}></Route>

@@ -24,9 +24,8 @@ const register = async (req, res, next) => {
   res.status(StatusCodes.CREATED).json({
     user: {
       email: user.email,
-      lastName: user.lastName,
-      location: user.location,
       name: user.name,
+      urlGambar: user.urlGambar,
     },
     token,
   });
@@ -52,8 +51,8 @@ const login = async (req, res) => {
   res.status(StatusCodes.OK).json({ user, token });
 };
 const updateUser = async (req, res) => {
-  const { email, name, NoHP, gender } = req.body;
-  if (!email || !name ) {
+  const { email, name, NoHP, gender, urlGambar } = req.body;
+  if (!email || !name) {
     throw new BadRequestError("Please provide all value");
   }
 
@@ -62,7 +61,7 @@ const updateUser = async (req, res) => {
   user.name = name;
   user.NoHP = NoHP;
   user.gender = gender;
-
+  user.urlGambar = urlGambar;
   await user.save();
   const token = user.createJWT();
   res.status(StatusCodes.OK).json({ user, token });
