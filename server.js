@@ -28,7 +28,7 @@ import authenticateUser from "./middleware/auth.js";
 const imagekit = new ImageKit({
   urlEndpoint: process.env.URL_ENDPOINT,
   publicKey: process.env.PUBLIC_KEY,
-  privateKey: "private_OI/6qlGNxjqvsNkmboDIgnObk+c=",
+  privateKey: process.env.PRIVATE_KEY,
 });
 
 app.use(function(req, res, next) {
