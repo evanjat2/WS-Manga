@@ -1,11 +1,11 @@
 # PAW
 
-## First clone into your local directory with 
+## Clone into your local directory with 
 ```
 git clone https://github.com/evanjat2/PAW.git
 ```
 
-## Second, install the dependency with
+## Install the dependency with
 ```
 npm install
 ```
