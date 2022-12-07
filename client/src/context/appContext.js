@@ -16,9 +16,9 @@ import {
   UPDATE_USER_SUCCESS,
   UPDATE_USER_ERROR,
   CLEAR_VALUES,
-  CREATE_SELL_BEGIN,
-  CREATE_SELL_SUCCESS,
-  CREATE_SELL_ERROR,
+  CREATE_BOOK_BEGIN,
+  CREATE_BOOK_SUCCESS,
+  CREATE_BOOK_ERROR,
   GET_SELL_BEGIN,
   GET_SELL_SUCCESS,
   SET_UPDATE_SELL,
@@ -190,8 +190,8 @@ const AppProvider = ({ children }) => {
     dispatch({ type: CLEAR_VALUES });
   };
 
-  const createSell = async (submittedData) => {
-    dispatch({ type: CREATE_SELL_BEGIN });
+  const createBook = async (submittedData) => {
+    dispatch({ type: CREATE_BOOK_BEGIN });
     try {
       const { data } = await axios.post("/api/v1/sell", submittedData, {
         headers: {
@@ -199,13 +199,13 @@ const AppProvider = ({ children }) => {
         },
       });
       dispatch({
-        type: CREATE_SELL_SUCCESS,
+        type: CREATE_BOOK_SUCCESS,
         payload: { data },
       });
       dispatch({ type: CLEAR_VALUES });
     } catch (error) {
       dispatch({
-        type: CREATE_SELL_ERROR,
+        type: CREATE_BOOK_ERROR,
         payload: { msg: error.response.data.msg },
       });
     }
@@ -295,7 +295,7 @@ const AppProvider = ({ children }) => {
         logoutUser,
         updateUser,
         clearValues,
-        createSell,
+        createBook,
         getAllSell,
         setUpdateSell,
         deleteBook,

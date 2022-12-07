@@ -1,12 +1,12 @@
-import { useAppContext } from "../../context/appContext";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Foto from "../../assets/images/profil/Foto.png";
-import Input from "./Input";
-import { CgProfile } from "react-icons/cg";
-import Alert from "../Alert";
+
 import { IKContext, IKImage, IKUpload } from "imagekitio-react";
-import { useRef } from "react";
+
+import Input from "./Input";
+import Upload from "./Upload";
+
+import { useAppContext } from "../../context/appContext";
+import Alert from "../Alert";
 const Profile = () => {
   const {
     user,
@@ -30,15 +30,6 @@ const Profile = () => {
     }
     updateUser({ name, email, NoHP, gender, urlGambar });
   };
-  const onError = (err) => {
-    console.log("Error", err);
-  };
-
-  const onSuccess = (res) => {
-    console.log("Success", res);
-    setUrlGambar(res.name);
-  };
-  const reftest = useRef(null);
   return (
     <>
       <div className="py-12">
@@ -117,22 +108,9 @@ const Profile = () => {
                       },
                     ]}
                   />
-                  {reftest && (
-                    <button
-                      className=""
-                      onClick={() => reftest.current.click()}
-                    >
-                      Pilih Foto
-                    </button>
-                  )}
-                  <IKUpload
-                    fileName="test-upload.png"
-                    onError={onError}
-                    onSuccess={onSuccess}
-                    inputRef={reftest}
-                    style={{ display: "none" }}
-                  />
                 </IKContext>
+                <div className="mt-4"></div>
+                <Upload value={urlGambar} setValue={setUrlGambar} />
               </div>
             </div>
           </div>

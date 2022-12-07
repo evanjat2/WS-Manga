@@ -7,9 +7,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   useEffect(() => {
     if (!user) {
-      setTimeout(() => {
-        navigate(`/login`);
-      }, 3000);
+      navigate(`/login`);
     }
   });
   return (

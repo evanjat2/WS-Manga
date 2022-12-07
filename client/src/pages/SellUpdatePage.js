@@ -1,13 +1,13 @@
 import { Navbar } from "../component/Layout";
-import PenjualUpdate from "../component/Penjual/PenjualUpdate";
-const PenjualUpdatePage = () => {
+import SellUpdate from "../component/Penjual/SellUpdate";
+const SellUpdatePage = () => {
   return (
     <div>
       <Navbar />
       <div className="min-h-screen mt-[60px] px-[40px]">
-        <PenjualUpdate />
+        <SellUpdate />
       </div>
     </div>
   );
 };
-export default PenjualUpdatePage;
+export default SellUpdatePage;

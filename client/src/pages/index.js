@@ -3,10 +3,10 @@ import LoginPage from "./LoginPage";
 import SignUpPage from "./SignUpPage";
 import ProfilePage from "./ProfilePage";
 import WishlistPage from "./WishlistPage";
-import PenjualCreatePage from "./PenjualCreatePage";
-import PenjualReadPage from "./PenjualReadPage";
-import PenjualUpdatePage from "./PenjualUpdatePage";
-import PenjualDeletePage from "./PenjualDeletePage";
+import SellCreatePage from "./SellCreatePage";
+import SellReadPage from "./SellReadPage";
+import SellUpdatePage from "./SellUpdatePage";
+import SellDeletePage from "./SellDeletePage";
 import ProductPage from "./ProductPage";
 import SoldBookPage from "./SoldBookPage";
 import ForgotPage from "./ForgotPage";
@@ -19,10 +19,10 @@ export {
   SignUpPage,
   ProfilePage,
   WishlistPage,
-  PenjualCreatePage,
-  PenjualReadPage,
-  PenjualUpdatePage,
-  PenjualDeletePage,
+  SellCreatePage,
+  SellReadPage,
+  SellUpdatePage,
+  SellDeletePage,
   Cart,
   ProductPage,
   SoldBookPage,

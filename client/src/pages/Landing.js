@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+
 import { Navbar } from "../component/Layout";
 import Cover from "../component/Landing/Cover";
 import DaftarPenjualan from "../component/Landing/DaftarPenjualan";

@@ -12,9 +12,9 @@ import {
   UPDATE_USER_SUCCESS,
   UPDATE_USER_ERROR,
   CLEAR_VALUES,
-  CREATE_SELL_BEGIN,
-  CREATE_SELL_SUCCESS,
-  CREATE_SELL_ERROR,
+  CREATE_BOOK_BEGIN,
+  CREATE_BOOK_SUCCESS,
+  CREATE_BOOK_ERROR,
   GET_SELL_BEGIN,
   GET_SELL_SUCCESS,
   UPDATE_BOOK_BEGIN,
@@ -139,10 +139,10 @@ const reducer = (state, action) => {
       ...initialState,
     };
   }
-  if (action.type === CREATE_SELL_BEGIN) {
+  if (action.type === CREATE_BOOK_BEGIN) {
     return { ...state, isLoading: true };
   }
-  if (action.type === CREATE_SELL_SUCCESS) {
+  if (action.type === CREATE_BOOK_SUCCESS) {
     return {
       ...state,
       isLoading: false,
@@ -151,7 +151,7 @@ const reducer = (state, action) => {
       alertText: "Berhasil menambah buku!",
     };
   }
-  if (action.type === CREATE_SELL_ERROR) {
+  if (action.type === CREATE_BOOK_ERROR) {
     return {
       ...state,
       isLoading: false,

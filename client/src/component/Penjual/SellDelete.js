@@ -1,16 +1,25 @@
-import Alert from "../Alert";
-import { useAppContext } from "../../context/appContext";
+import { IKContext, IKImage } from "imagekitio-react";
 
-const PenjualDelete = () => {
-  const { choosedBook, deleteBook, showAlert } = useAppContext();
+import { useAppContext } from "../../context/appContext";
+import Alert from "../Alert";
+
+const SellDelete = () => {
+  const { choosedBook, deleteBook, showAlert, urlEndpoint } = useAppContext();
   return (
     <>
       {showAlert && <Alert />}
       <div class="py-16 grid place-items-center text-reemkufiink text-neutral font-bold">
-        <img
-          className="object-contain h-48 w-30"
-          src="https://komikcast.site/wp-content/uploads/2019/07/658v11kdjasfodfasdf-e1565284654247.jpg"
-        ></img>
+        <IKContext urlEndpoint={urlEndpoint}>
+          <IKImage
+            path={choosedBook?.urlGambar}
+            transformation={[
+              {
+                height: 200,
+                width: 150,
+              },
+            ]}
+          />
+        </IKContext>
         <div className="mt-5 center">{choosedBook.judul}</div>
         <div class="flex items-center mt-5">
           <svg
@@ -74,12 +83,14 @@ const PenjualDelete = () => {
 
         <div class="grid grid-rows-3 grid-flow-col gap-4">
           <div className="row-span-3">
-            <a href="/sell"><button
-              onClick={() => deleteBook(choosedBook._id)}
-              className="mt-4 flex text-white bg-sky-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
-            >
-              Yes
-            </button></a>
+            <a href="/sell">
+              <button
+                onClick={() => deleteBook(choosedBook._id)}
+                className="mt-4 flex text-white bg-sky-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+              >
+                Yes
+              </button>
+            </a>
           </div>
           <div className="row-span-1">
             <a href="/sell">
@@ -93,4 +104,4 @@ const PenjualDelete = () => {
     </>
   );
 };
-export default PenjualDelete;
+export default SellDelete;

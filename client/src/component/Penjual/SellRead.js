@@ -1,18 +1,23 @@
-import { useEffect, useState } from "react";
+import { IKContext, IKImage } from "imagekitio-react";
+
 import { useAppContext } from "../../context/appContext";
-const PenjualRead = () => {
-  const { choosedBook } = useAppContext();
-  const [judul, setJudul] = useState(choosedBook?.judul);
-  useEffect(() => {
-    console.log(choosedBook);
-  }, []);
+const SellRead = () => {
+  const { choosedBook, urlEndpoint } = useAppContext();
   return (
     <>
       <div className="min-h-center py-16 md:flex grid font-inter ">
         <div className="w-[40%] pl-30 mx-20 grid place-items-center">
-          <div className="h-[144px] w-[288px] border grid text-center content-center">
-            <div className="">Dummy Picture</div>
-          </div>
+          <IKContext urlEndpoint={urlEndpoint}>
+            <IKImage
+              path={choosedBook?.urlGambar}
+              transformation={[
+                {
+                  height: 200,
+                  width: 150,
+                },
+              ]}
+            />
+          </IKContext>
           <div className="mt-5 text-reemkufiink text-black font-bold">
             Dummy Rating
           </div>
@@ -87,4 +92,4 @@ const PenjualRead = () => {
     </>
   );
 };
-export default PenjualRead;
+export default SellRead;
