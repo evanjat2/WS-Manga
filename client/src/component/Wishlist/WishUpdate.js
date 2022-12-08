@@ -2,8 +2,8 @@ import { useState } from "react";
 
 import { IKContext, IKImage, IKUpload } from "imagekitio-react";
 
-import Input from "./Input";
-import Upload from "./Upload";
+import Input from "../Penjual/Input";
+import Upload from "../Penjual/Upload";
 import Alert from "../Alert";
 import { useAppContext } from "../../context/appContext";
 

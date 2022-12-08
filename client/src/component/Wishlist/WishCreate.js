@@ -4,8 +4,8 @@ import { IKContext, IKImage, IKUpload } from "imagekitio-react";
 
 import { useAppContext } from "../../context/appContext";
 import Alert from "../Alert";
-import Input from "./Input";
-import Upload from "./Upload";
+import Input from "../Penjual/Input";
+import Upload from "../Penjual/Upload";
 
 const WishCreate = () => {
   const {
