@@ -7,6 +7,7 @@ import {
   WishlistDashboardPage,
   WishCreatePage,
   WishUpdatePage,
+  WishReadPage,
   Cart,
   ForgotPage,
   SellDashboardPage,
@@ -33,6 +34,7 @@ function App() {
           <Route path="/wishlist" element={<WishlistDashboardPage />}></Route>
           <Route path="/wishlist/create" element={<WishCreatePage />}></Route>
           <Route path="/wishlist/update" element={<WishUpdatePage />}></Route>
+          <Route path="/wishlist/read" element={<WishReadPage />}></Route>
 
           <Route path="/sell" element={<SellDashboardPage />}></Route>
           <Route path="/sell/create" element={<SellCreatePage />}></Route>
