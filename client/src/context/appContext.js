@@ -30,11 +30,26 @@ import {
   DELETE_BOOK_ERROR,
   GET_OWNED_BOOK_SUCCESS,
   CHOOSE_BOOK,
+  CREATE_WISH_BEGIN,
+  CREATE_WISH_SUCCESS,
+  CREATE_WISH_ERROR,
+  GET_WISHES_BEGIN,
+  GET_WISHES_SUCCESS,
+  SET_UPDATE_WISH,
+  UPDATE_WISH_BEGIN,
+  UPDATE_WISH_SUCCESS,
+  UPDATE_WISH_ERROR,
+  DELETE_WISH_BEGIN,
+  DELETE_WISH_SUCCESS,
+  DELETE_WISH_ERROR,
+  GET_OWNED_WISHES_SUCCESS,
+  CHOOSE_WISH,
 } from "./actions";
 
 const token = localStorage.getItem("token");
 const user = localStorage.getItem("user");
 const choosedBook = localStorage.getItem("choosedBook");
+const choosedWish = localStorage.getItem("choosedWish");
 
 const initialState = {
   isLoading: false,
@@ -51,7 +66,9 @@ const initialState = {
   istoSell: "",
   owner: "",
   ownedBook: [],
+  ownWishes: [],
   choosedBook: choosedBook ? JSON.parse(choosedBook) : null,
+  choosedWish: choosedWish ? JSON.parse(choosedWish) : null,
   urlEndpoint: process.env.REACT_APP_URL_ENDPOINT,
   publicKey: process.env.REACT_APP_PUBLIC_KEY,
   authenticationEndpoint: process.env.REACT_APP_AUTHENTICATION_ENDPOINT,
@@ -285,6 +302,100 @@ const AppProvider = ({ children }) => {
     clearAlert();
   };
 
+  const createWish = async (submittedData) => {
+    dispatch({ type: CREATE_WISH_BEGIN });
+    try {
+      const { data } = await axios.post("/api/v1/wishlist", submittedData, {
+        headers: {
+          Authorization: `Bearer ${state.token}`,
+        },
+      });
+      dispatch({
+        type: CREATE_WISH_SUCCESS,
+        payload: { data },
+      });
+      dispatch({ type: CLEAR_VALUES });
+    } catch (error) {
+      dispatch({
+        type: CREATE_WISH_ERROR,
+        payload: { msg: error.response.data.msg },
+      });
+    }
+    clearAlert();
+  };
+
+  const getAllWishes = async () => {
+    dispatch({ type: GET_WISHES_BEGIN });
+    try {
+      const { data } = await axios.get("/api/v1/wishlist/all");
+      dispatch({
+        type: GET_WISHES_SUCCESS,
+        payload: { data },
+      });
+    } catch (error) {
+      console.log("Error");
+    }
+    clearAlert();
+  };
+
+  const getOwnWishes = async () => {
+    try {
+      const { data } = await axios.get("/api/v1/wishlist", {
+        headers: {
+          Authorization: `Bearer ${state.token}`,
+        },
+      });
+      const { wishes, totalWishes } = data;
+      dispatch({
+        type: GET_OWNED_WISHES_SUCCESS,
+        payload: { data },
+      });
+      console.log(wishes);
+    } catch (error) {
+      console.log("Error");
+    }
+  };
+
+  const chooseWish = (wish) => {
+    dispatch({ type: CHOOSE_WISH, payload: { wish } });
+    localStorage.removeItem("choosedWish");
+    localStorage.setItem("choosedWish", JSON.stringify(wish));
+  };
+
+  const setUpdateWish = (id) => {
+    dispatch({ type: SET_UPDATE_WISH, payload: { id } });
+  };
+
+  const deleteWish = async (id) => {
+    dispatch({ type: DELETE_WISH_BEGIN });
+    try {
+      await axios.delete(`/api/v1/wishlist/${id}`, {
+        headers: {
+          Authorization: `Bearer ${state.token}`,
+        },
+      });
+      dispatch({ type: DELETE_WISH_SUCCESS });
+    } catch (error) {
+      console.log("error: can't delete book");
+    }
+    clearAlert();
+  };
+
+  const updateWish = async (submittedData) => {
+    dispatch({ type: UPDATE_WISH_BEGIN });
+    try {
+      const { _id } = submittedData;
+      await axios.patch(`/api/v1/wishlist/${_id}`, submittedData, {
+        headers: {
+          Authorization: `Bearer ${state.token}`,
+        },
+      });
+      dispatch({
+        type: UPDATE_WISH_SUCCESS,
+      });
+    } catch (error) {}
+    clearAlert();
+  };
   return (
     <AppContext.Provider
       value={{
@@ -303,6 +414,13 @@ const AppProvider = ({ children }) => {
         chooseBook,
         updateBook,
         deleteBook,
+        createWish,
+        getAllWishes,
+        getOwnWishes,
+        chooseWish,
+        setUpdateWish,
+        deleteWish,
+        updateWish,
       }}
     >
       {children}

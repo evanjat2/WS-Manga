@@ -4,7 +4,7 @@ import {
   LoginPage,
   SignUpPage,
   ProfilePage,
-  WishlistPage,
+  WishlistDashboardPage,
   Cart,
   ForgotPage,
   SellDashboardPage,
@@ -17,6 +17,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import ProductPage from "./pages/ProductPage";
 import SoldBookPage from "./pages/SoldBookPage";
 
+
 function App() {
   return (
     <>
@@ -26,7 +27,7 @@ function App() {
           <Route path="/login" element={<LoginPage />}></Route>
           <Route path="/signup" element={<SignUpPage />}></Route>
           <Route path="/profile" element={<ProfilePage />}></Route>
-          <Route path="/wishlist" element={<WishlistPage />}></Route>
+          <Route path="/wishlist" element={<WishlistDashboardPage />}></Route>
 
           <Route path="/sell" element={<SellDashboardPage />}></Route>
           <Route path="/sell/create" element={<SellCreatePage />}></Route>
