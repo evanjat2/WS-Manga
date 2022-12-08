@@ -27,7 +27,9 @@ function App() {
           <Route path="/login" element={<LoginPage />}></Route>
           <Route path="/signup" element={<SignUpPage />}></Route>
           <Route path="/profile" element={<ProfilePage />}></Route>
+
           <Route path="/wishlist" element={<WishlistDashboardPage />}></Route>
+          <Route path="/wishlist/create" element={<WishCreatePage />}></Route>
 
           <Route path="/sell" element={<SellDashboardPage />}></Route>
           <Route path="/sell/create" element={<SellCreatePage />}></Route>
