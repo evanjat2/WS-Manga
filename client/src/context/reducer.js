@@ -26,6 +26,20 @@ import {
   DELETE_BOOK_ERROR,
   GET_OWNED_BOOK_SUCCESS,
   CHOOSE_BOOK,
+  CREATE_WISH_BEGIN,
+  CREATE_WISH_SUCCESS,
+  CREATE_WISH_ERROR,
+  GET_WISHES_BEGIN,
+  GET_WISHES_SUCCESS,
+  SET_UPDATE_WISH,
+  UPDATE_WISH_BEGIN,
+  UPDATE_WISH_SUCCESS,
+  UPDATE_WISH_ERROR,
+  DELETE_WISH_BEGIN,
+  DELETE_WISH_SUCCESS,
+  DELETE_WISH_ERROR,
+  GET_OWNED_WISHES_SUCCESS,
+  CHOOSE_WISH,
 } from "./actions";
 
 import { initialState } from "./appContext";
@@ -232,6 +246,100 @@ const reducer = (state, action) => {
 
   if (action.type === CHOOSE_BOOK) {
     return { ...state, choosedBook: action.payload.book };
+  }
+  if (action.type === CREATE_WISH_BEGIN) {
+    return { ...state, isLoading: true };
+  }
+  if (action.type === CREATE_WISH_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: "success",
+      alertText: "Berhasil menambah item wish!",
+    };
+  }
+  if (action.type === CREATE_WISH_ERROR) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: "danger",
+      alertText: action.payload.msg,
+    };
+  }
+  if (action.type === GET_WISHES_BEGIN) {
+    return { ...state, isLoading: true };
+  }
+  if (action.type === GET_WISHES_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      sell: action.payload.data,
+    };
+  }
+
+  if (action.type === GET_OWNED_WISHES_SUCCESS) {
+    return {
+      ...state,
+      ownedWishes: action.payload.data.wishes,
+      showAlert: true,
+      alertType: "danger",
+    };
+  }
+
+  if (action.type === SET_UPDATE_WISH) {
+    const wish = action.payload.data.wishes.find(
+      (wish) => wish.id === action.payload.id
+    );
+    const { _id, judul, pengarang, detail, urlGambar } = wish;
+    return {
+      ...state,
+      isEditing: true,
+      editBookId: _id,
+      judul,
+      pengarang,
+      detail,
+      urlGambar,
+    };
+  }
+  if (action.type === UPDATE_WISH_BEGIN) {
+    return { ...state, isLoading: true };
+  }
+  if (action.type === UPDATE_WISH_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: "success",
+      alertText: "Berhasil Meng-update item wish!",
+    };
+  }
+  if (action.type === UPDATE_WISH_ERROR) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: "danger",
+      alertText: action.payload.msg,
+    };
+  }
+  if (action.type === DELETE_WISH_BEGIN) {
+    return { ...state, isLoading: true };
+  }
+
+  if (action.type === DELETE_WISH_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: "success",
+      alertText: "Berhasil menghapus buku!",
+    };
+  }
+
+  if (action.type === CHOOSE_WISH) {
+    return { ...state, choosedWish: action.payload.wishes };
   }
   throw new Error(`no such action: ${action.type}`);
 };
