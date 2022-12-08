@@ -2,7 +2,11 @@ import Landing from "./Landing";
 import LoginPage from "./LoginPage";
 import SignUpPage from "./SignUpPage";
 import ProfilePage from "./ProfilePage";
-import WishlistPage from "./WishlistPage";
+import WishlistDashboardPage from "./WishlistDashboardPage"
+import WishCreatePage from "./WishCreatePage";
+import WishReadPage from "./WishReadPage";
+import WishUpdatePage from "./WishUpdatePage";
+import WishDeletePage from "./WishDeletePage";
 import SellCreatePage from "./SellCreatePage";
 import SellReadPage from "./SellReadPage";
 import SellUpdatePage from "./SellUpdatePage";
@@ -18,7 +22,11 @@ export {
   LoginPage,
   SignUpPage,
   ProfilePage,
-  WishlistPage,
+  WishCreatePage,
+  WishReadPage,
+  WishUpdatePage,
+  WishDeletePage,
+  WishlistDashboardPage,
   SellCreatePage,
   SellReadPage,
   SellUpdatePage,
