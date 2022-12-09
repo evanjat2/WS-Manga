@@ -46,7 +46,7 @@ const CardList = (props) => {
       <div className="justify-self-end">
         <a href="/cart">
         <img
-          className="h-[40px] cursor-pointer"
+          className="h-[40px] cursor-pointer rounded hover:scale-105 transition duration-300"
           src={trash}
           onClick={() => deleteCart({ productID, buyerID })}
         ></img>

@@ -22,7 +22,7 @@ const Upload = ({ value, setValue }) => {
       >
         {reftest && (
           <button
-            className="hover:text-orange border-4 border-dotted border-gray-300 rounded-lg text-blue font-bold w-full"
+            className="hover:text-orange transition duration-150 border-4 border-dotted border-gray-300 rounded-lg text-blue font-bold w-full"
             onClick={() => reftest.current.click()}
           >
             Pilih Foto

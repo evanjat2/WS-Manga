@@ -31,7 +31,7 @@ const DaftarPenjualan = () => {
           {list?.map((l) => (
             <a href="/sell/read">
               <div
-                className="overflow-hidden cursor-pointer"
+                className="overflow-hidden cursor-pointer hover:scale-105 transition duration-300"
                 onClick={() => chooseBook(l)}
               >
                 <IKContext

@@ -20,7 +20,7 @@ const DaftarWishlist = () => {
             {list?.map((l) => (
               <a href="/wishlist/read">
                 <div
-                  className="overflow-hidden cursor-pointer"
+                  className="overflow-hidden cursor-pointer hover:scale-105 transition duration-300"
                   onClick={() => chooseWish(l)}
                 >
                   <IKContext

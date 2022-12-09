@@ -59,12 +59,12 @@ const Profile = () => {
             <p className="text-blue font-bold cursor-pointer mt-4">Akun Saya</p>
             <a href="/wishlist">
               <p
-                className="hover:text-orange text-blue font-bold cursor-pointer mt-4 w-fit">
+                className="hover:text-orange transition duration-150 text-blue font-bold cursor-pointer mt-4 w-fit">
                 Wishlist
               </p>
             </a>
             <p
-              className="hover:text-orange text-blue font-bold cursor-pointer mt-4 w-fit"
+              className="hover:text-orange transition duration-150 text-blue font-bold cursor-pointer mt-4 w-fit"
               onClick={logoutUser}
             >
               Logout
@@ -92,7 +92,7 @@ const Profile = () => {
                     <div className="flex justify-end gap-8 mt-8">
                       <button
                         type="submit"
-                        className="hover:bg-amber-400 text-blue font-bold p-2 bg-[#EDD69E] w-fit cursor-pointer rounded-lg"
+                        className="hover:bg-amber-400 transition duration-150 text-blue font-bold p-2 bg-[#EDD69E] w-fit cursor-pointer rounded-lg"
                       >
                         Update User
                       </button>

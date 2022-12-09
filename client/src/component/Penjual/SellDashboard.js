@@ -10,7 +10,7 @@ const SellDashboard = () => {
     <div className="font-inter">
       <div className="my-8 flex w-full justify-end">
         <a href="/sell/create">
-          <p className="w-fit py-1 px-4  bg-[#1AB53C] text-white cursor-pointer rounded-lg">
+          <p className="w-fit py-1 px-4  bg-[#1AB53C] text-white cursor-pointer rounded-lg hover:bg-green-400 transition duration-150">
             Add
           </p>
         </a>
@@ -48,7 +48,7 @@ const SellDashboard = () => {
                   <div className="grid grid-cols-3 gap-2 text-center text-white text-sm">
                     <a href="/sell/read">
                       <div
-                        className="bg-[#0E7278] cursor-pointer rounded-md "
+                        className="bg-[#0E7278] cursor-pointer rounded-md hover:bg-emerald-500 transition duration-150"
                         onClick={() => chooseBook(list)}
                       >
                         Read
@@ -56,7 +56,7 @@ const SellDashboard = () => {
                     </a>
                     <a href="/sell/update">
                       <div
-                        className="bg-[#E39807] cursor-pointer rounded-md"
+                        className="bg-[#E39807] cursor-pointer rounded-md hover:bg-amber-400 transition duration-150"
                         onClick={() => chooseBook(list)}
                       >
                         Edit
@@ -64,7 +64,7 @@ const SellDashboard = () => {
                     </a>
                     <a href="/sell/delete">
                       <div
-                        className="bg-[#E82626] cursor-pointer rounded-md"
+                        className="bg-[#E82626] cursor-pointer rounded-md hover:bg-red-400 transition duration-150"
                         onClick={() => chooseBook(list)}
                       >
                         Delete

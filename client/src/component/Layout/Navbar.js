@@ -16,15 +16,15 @@ const Navbar = () => {
         <a href="/"><img src={wsmanga} className="h-[30px]"></img></a>
         <div className="flex justify-between gap-8 font-bold text-blue">
           <a href="/sell">
-            <p className="hover:text-orange cursor-pointer">Penjualan</p>
+            <p className="hover:text-orange transition duration-150 cursor-pointer">Penjualan</p>
           </a>
           <a href="/profile">
-            <p className="hover:text-orange cursor-pointer">Profil</p>
+            <p className="hover:text-orange transition duration-150 cursor-pointer">Profil</p>
           </a>
           <a href="/cart">
-          <p className="hover:text-orange cursor-pointer">My Cart</p></a>
+          <p className="hover:text-orange transition duration-150 cursor-pointer">My Cart</p></a>
           <a href="/">
-            <p className="hover:text-orange cursor-pointer">Home</p>
+            <p className="hover:text-orange transition duration-150 cursor-pointer">Home</p>
           </a>
         </div>
       </div>
