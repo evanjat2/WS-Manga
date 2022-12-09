@@ -4,9 +4,9 @@ import name from "../../assets/images/landing/name.png";
 const Cover = () => {
   return (
     <div className="h-screen w-screen relative font-inter text-white overflow-hidden">
-      <img src={poster}></img>
+      <img src={poster} alt="Poster One Piece"></img>
       <div className="absolute gap-4 w-screen h-screen top-0 grid content-center px-[40px]">
-        <img src={name}></img>
+        <img src={name} alt="Logo One Piece"></img>
         <p>One Piece</p>
         <p className="w-[500px]">
           One Piece is a Japanese manga series written and illustrated by

@@ -5,7 +5,7 @@ const NotFound = () => {
     return (
         <>
             <div className="grid h-screen place-content-center">
-                <img src={error404} className="mx-auto"/>
+                <img src={error404} className="mx-auto" alt="404 Error"/>
                 <p className="font-notoseriftc text-center text-3xl text-reemkufiink text-blue font-bold my-4">
                 Sorry, this page could not be found
                 </p>

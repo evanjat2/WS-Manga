@@ -487,7 +487,6 @@ const AppProvider = ({ children }) => {
         getOwnedBook,
         chooseBook,
         updateBook,
-        deleteBook,
         createWish,
         getAllWishes,
         getOwnWishes,
