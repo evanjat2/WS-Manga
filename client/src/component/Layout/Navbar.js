@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <div className="z-10 h-[60px] bg-cream fixed w-screen top-0 grid content-center px-[40px] text-inter drop-shadow-lg">
       <div className="flex justify-between">
-        <img src={wsmanga} className="h-[30px]"></img>
+        <a href="/"><img src={wsmanga} className="h-[30px]"></img></a>
         <div className="flex justify-between gap-8 font-bold text-blue">
           <a href="/sell">
             <p className="hover:text-orange cursor-pointer">Penjualan</p>
