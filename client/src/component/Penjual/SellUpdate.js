@@ -19,15 +19,17 @@ const SellUpdate = () => {
   const [judul, setJudul] = useState(choosedBook.judul);
   const [pengarang, setPengarang] = useState(choosedBook.pengarang);
   const [detail, setDetail] = useState(choosedBook.detail);
+  const [volume, setVolume] = useState(choosedBook.volume);
+  const [harga, setHarga] = useState(choosedBook.harga);
   const [urlGambar, setUrlGambar] = useState(choosedBook.urlGambar);
   const _id = choosedBook._id;
   const onSubmit = (e) => {
     e.preventDefault();
-    if (!judul || !pengarang || !detail) {
-      console.log("Judul, Pengarang, dan Detail tidak boleh kosong!");
+    if (!judul || !pengarang || !detail || !volume ||!harga) {
+      console.log("Semua kolom harus diisi!");
       return;
     }
-    updateBook({ judul, pengarang, detail, urlGambar, _id });
+    updateBook({ judul, pengarang, detail, volume, harga, urlGambar, _id });
   };
 
   return (
@@ -37,17 +39,19 @@ const SellUpdate = () => {
         <form onSubmit={onSubmit} className="w-[65%]">
           <button
             type="submit"
-            class="mt-20 flex text-white bg-green-500 border-0 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+            class="mt-10 flex text-white bg-green-500 border-0 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
           >
             Update
           </button>
           <div>
             <Input label="Judul" value={judul} setValue={setJudul} />
+            <Input label="Volume" value={volume} setValue={setVolume} />
             <Input
               label="Pengarang"
               value={pengarang}
               setValue={setPengarang}
             />
+            <Input label="Harga" value={harga} setValue={setHarga} />
             <Input label="Details" value={detail} setValue={setDetail} />
           </div>
         </form>

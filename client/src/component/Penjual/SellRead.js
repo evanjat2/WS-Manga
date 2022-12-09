@@ -21,7 +21,6 @@ const SellRead = () => {
   const volume = choosedBook.volume;
   const pengarang = choosedBook.pengarang;
   const detail = choosedBook.detail;
-  const harga = choosedBook.harga;
   const urlGambar = choosedBook.urlGambar;
   const owner = choosedBook.owner;
 

@@ -20,7 +20,7 @@ const SellCreate = () => {
   const [pengarang, setPengarang] = useState("");
   const [detail, setDetail] = useState("");
   const [volume, setVolume] = useState();
-  const [harga, setHarga] = useState()
+  const [harga, setHarga] = useState();
   const [urlGambar, setUrlGambar] = useState("1.png");
 
   const onSubmit = (e) => {
