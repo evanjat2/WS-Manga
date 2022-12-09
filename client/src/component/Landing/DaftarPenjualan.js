@@ -14,7 +14,7 @@ const DaftarPenjualan = () => {
       console.log("Error");
     }
     const { book } = data.data;
-    setList(book.slice(-7));
+    setList(book);
     clearAlert();
   };
   useEffect(() => {
@@ -26,9 +26,8 @@ const DaftarPenjualan = () => {
       <div className="mt-12 px-[80px] font-Inter">
         <div className="flex justify-between  text-blue font-bold ">
           <p className="cursor-pointer">Daftar Penjualan</p>
-          <p className="cursor-pointer">Show All</p>
         </div>
-        <div className="grid justify-items-between grid-cols-7 overflow-auto mt-4 scrollbar-hide pb-40">
+        <div className="grid justify-items-between grid-cols-7 h-[400px] mt-4 overflow-auto ">
           {list?.map((l) => (
             <a href="/sell/read">
               <div
