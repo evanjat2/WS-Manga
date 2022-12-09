@@ -29,4 +29,22 @@ const checkCart = async (req, res) => {
   res.status(StatusCodes.OK).json({ cart, totalCarts: cart.length });
 };
 
-export { createCart, checkCart };
+const deleteCart = async (req, res) => {
+  const { productID, buyerID } = req.body;
+
+  const cart = await Cart.findOne({ productID: productID, buyerID: buyerID });
+
+  if (!cart) {
+    throw new NotFoundError(`No cart with productID :${productID} and buyerID:${buyerID}`);
+  }
+
+  if (req.user.userId !== cart.buyerID.toString()) {
+    throw new UnAuthenticatedError("Ini bukan buku yang anda simpan kedalam cart");
+  }
+
+  await cart.remove();
+
+  res.status(StatusCodes.OK).json({ msg: "Sukses! Cart telah dihapus" });
+};
+
+export { createCart, checkCart, deleteCart };

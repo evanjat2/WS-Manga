@@ -232,40 +232,6 @@ const AppProvider = ({ children }) => {
     clearAlert();
   };
 
-  const checkCart = async (submittedData) => {
-    try {
-      const { data } = await axios.post("/api/v1/cart/check", submittedData);
-      const { totalCarts } = data;
-      if (totalCarts > 0) {
-        dispatch({
-          type: CHECK_CART_TRUE,
-        });
-        console.log("Sudah masuk carts");
-      }
-      if (totalCarts == 0) {
-        dispatch({
-          type: CHECK_CART_FALSE,
-        });
-        console.log("Belum masuk carts");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const createCart = async (submittedData) => {
-    try {
-      const { data } = await axios.post("/api/v1/cart", submittedData, {
-        headers: {
-          Authorization: `Bearer ${state.token}`,
-        },
-      });
-      console.log(data);
-    } catch (error) {
-      console.log("error");
-    }
-  };
-
   const getAllSell = async () => {
     dispatch({ type: GET_SELL_BEGIN });
     try {
@@ -321,6 +287,56 @@ const AppProvider = ({ children }) => {
       console.log("error: can't delete book");
     }
     clearAlert();
+  };
+
+  const checkCart = async (submittedData) => {
+    try {
+      const { data } = await axios.post("/api/v1/cart/check", submittedData);
+      const { totalCarts } = data;
+      if (totalCarts > 0) {
+        dispatch({
+          type: CHECK_CART_TRUE,
+        });
+        console.log("Sudah masuk carts");
+      }
+      if (totalCarts == 0) {
+        dispatch({
+          type: CHECK_CART_FALSE,
+        });
+        console.log("Belum masuk carts");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const createCart = async (submittedData) => {
+    try {
+      const { data } = await axios.post("/api/v1/cart", submittedData, {
+        headers: {
+          Authorization: `Bearer ${state.token}`,
+        },
+      });
+      console.log(data);
+    } catch (error) {
+      console.log("error");
+    }
+  };
+
+  const deleteCart = async (submittedData) => {
+    try {
+      await axios.post(`/api/v1/cart/delete`, submittedData, {
+        headers: {
+          Authorization: `Bearer ${state.token}`,
+        },
+      });
+      dispatch({
+        type: CHECK_CART_FALSE,
+      });
+      console.log("Sampe sini")
+    } catch (error) {
+      console.log("error: can't delete book");
+    }
   };
 
   const updateBook = async (submittedData) => {
@@ -460,6 +476,7 @@ const AppProvider = ({ children }) => {
         updateWish,
         createCart,
         checkCart,
+        deleteCart,
       }}
     >
       {children}

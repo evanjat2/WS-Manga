@@ -1,7 +1,11 @@
 import express from "express";
 const router = express.Router();
 
-import { createCart, checkCart } from "../controllers/cartController.js";
+import {
+  createCart,
+  checkCart,
+  deleteCart,
+} from "../controllers/cartController.js";
 import authenticateUser from "../middleware/auth.js";
 
 router
@@ -9,6 +13,7 @@ router
   // .get(authenticateUser, getOwnedBook)
   .post(authenticateUser, createCart);
 router.route("/check").post(checkCart);
+router.route("/delete").post(authenticateUser, deleteCart);
 router;
 //   .route("/:id")
 //   .get(getOneBook)
