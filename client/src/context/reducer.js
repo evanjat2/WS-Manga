@@ -282,7 +282,7 @@ const reducer = (state, action) => {
   if (action.type === GET_OWNED_WISHES_SUCCESS) {
     return {
       ...state,
-      ownedWishes: action.payload.data.wishes,
+      ownWishes: action.payload.data.wishes,
       showAlert: true,
       alertType: "danger",
     };
