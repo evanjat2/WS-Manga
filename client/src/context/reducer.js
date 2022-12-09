@@ -40,6 +40,8 @@ import {
   DELETE_WISH_ERROR,
   GET_OWNED_WISHES_SUCCESS,
   CHOOSE_WISH,
+  CHECK_CART_TRUE,
+  CHECK_CART_FALSE
 } from "./actions";
 
 import { initialState } from "./appContext";
@@ -340,6 +342,19 @@ const reducer = (state, action) => {
 
   if (action.type === CHOOSE_WISH) {
     return { ...state, choosedWish: action.payload.wishes };
+  }
+
+  if (action.type === CHECK_CART_TRUE) {
+    return {
+      ...state,
+      checkedCart: true,
+    };
+  }
+  if (action.type === CHECK_CART_FALSE) {
+    return {
+      ...state,
+      checkedCart: false,
+    };
   }
   throw new Error(`no such action: ${action.type}`);
 };

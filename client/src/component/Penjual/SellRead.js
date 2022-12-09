@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 import { useAppContext } from "../../context/appContext";
 const SellRead = () => {
-  const { choosedBook, urlEndpoint, user, createCart, checkCart } =
+  const { choosedBook, urlEndpoint, user, createCart, checkCart, checkedCart } =
     useAppContext();
   const productID = choosedBook._id;
   const buyerID = user._id;
@@ -11,13 +11,14 @@ const SellRead = () => {
   const addToCart = () => {
     createCart({ productID, buyerID });
   };
-  const addToWishlist = () => {
-    const owner = user._id;
-    console.log(choosedBook);
+
+  const removeFromCart = () => {
+    console.log("Ter remove")
   };
+
   useEffect(() => {
     checkCart({ productID, buyerID });
-  });
+  }, []);
   return (
     <>
       <div className="min-h-center py-16 md:flex grid font-inter ">
@@ -106,15 +107,14 @@ const SellRead = () => {
       </div>
       <div className="text-white flex justify-center gap-12 text-center">
         <div
-          className="bg-blue cursor-pointer rounded-md min-w-[120px] py-1 hover:scale-110 transition duration-300"
-          onClick={() => addToCart()}
+          className={`cursor-pointer rounded-md min-w-[140px] py-1 hover:scale-110 transition duration-300 ${
+            checkedCart ? " bg-red-400 " : " bg-blue "
+          }`}
+          onClick={checkedCart ?  () => removeFromCart() : () => addToCart()}
         >
-          Add to cart
+          {checkedCart ? "Remove from Cart": "Add to Cart"}
         </div>
-        <div
-          className="bg-blue cursor-pointer rounded-md min-w-[120px] py-1 hover:scale-110 transition duration-300"
-          onClick={() => addToWishlist()}
-        >
+        <div className="bg-blue cursor-pointer rounded-md min-w-[140px] py-1 hover:scale-110 transition duration-300">
           Add to wishlist
         </div>
       </div>

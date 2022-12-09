@@ -44,6 +44,8 @@ import {
   DELETE_WISH_ERROR,
   GET_OWNED_WISHES_SUCCESS,
   CHOOSE_WISH,
+  CHECK_CART_TRUE,
+  CHECK_CART_FALSE,
 } from "./actions";
 
 const token = localStorage.getItem("token");
@@ -67,6 +69,7 @@ const initialState = {
   owner: "",
   ownedBook: [],
   ownWishes: [],
+  checkedCart: false,
   choosedBook: choosedBook ? JSON.parse(choosedBook) : null,
   choosedWish: choosedWish ? JSON.parse(choosedWish) : null,
   urlEndpoint: process.env.REACT_APP_URL_ENDPOINT,
@@ -229,6 +232,27 @@ const AppProvider = ({ children }) => {
     clearAlert();
   };
 
+  const checkCart = async (submittedData) => {
+    try {
+      const { data } = await axios.post("/api/v1/cart/check", submittedData);
+      const { totalCarts } = data;
+      if (totalCarts > 0) {
+        dispatch({
+          type: CHECK_CART_TRUE,
+        });
+        console.log("Sudah masuk carts");
+      }
+      if (totalCarts == 0) {
+        dispatch({
+          type: CHECK_CART_FALSE,
+        });
+        console.log("Belum masuk carts");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const createCart = async (submittedData) => {
     try {
       const { data } = await axios.post("/api/v1/cart", submittedData, {
@@ -237,16 +261,8 @@ const AppProvider = ({ children }) => {
         },
       });
       console.log(data);
-    } catch (error) {}
-  };
-
-  const checkCart = async (submittedData) => {
-    try {
-      const { data } = await axios.post("/api/v1/cart/check", submittedData);
-      const { cart, totalCarts } = data;
-      console.log(cart);
     } catch (error) {
-      console.log(error);
+      console.log("error");
     }
   };
 
@@ -376,8 +392,6 @@ const AppProvider = ({ children }) => {
       console.log("Error");
     }
   };
-
-  
 
   const chooseWish = (wish) => {
     dispatch({ type: CHOOSE_WISH, payload: { wish } });

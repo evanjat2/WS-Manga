@@ -25,7 +25,7 @@ const createCart = async (req, res) => {
 const checkCart = async (req, res) => {
   const { productID, buyerID } = req.body;
 
-  const cart = await Cart.findOne({ productID: productID, buyerID: buyerID });
+  const cart = await Cart.find({ productID: productID, buyerID: buyerID });
   res.status(StatusCodes.OK).json({ cart, totalCarts: cart.length });
 };
 
