@@ -16,6 +16,7 @@ import SoldBookPage from "./SoldBookPage";
 import ForgotPage from "./ForgotPage";
 import CartPage from "./CartPage";
 import SellDashboardPage from "./SellDashboardPage";
+import NotFoundPage from "./NotFoundPage";
 
 export {
   Landing,
@@ -35,5 +36,6 @@ export {
   ProductPage,
   SoldBookPage,
   ForgotPage,
-  SellDashboardPage
+  SellDashboardPage,
+  NotFoundPage
 };
