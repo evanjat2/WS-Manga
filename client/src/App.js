@@ -16,8 +16,9 @@ import {
   SellUpdatePage,
   SellReadPage,
   SellDeletePage,
+  NotFoundPage
 } from "../src/pages";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Switch, Link } from "react-router-dom";
 import ProductPage from "./pages/ProductPage";
 import SoldBookPage from "./pages/SoldBookPage";
 
@@ -48,6 +49,7 @@ function App() {
           <Route path="/product" element={<ProductPage />}></Route>
           <Route path="/soldbook" element={<SoldBookPage />}></Route>
           <Route path="/forgot" element={<ForgotPage />}></Route>
+          <Route path="*" element={<NotFoundPage />}></Route>
         </Routes>
       </BrowserRouter>
     </>
