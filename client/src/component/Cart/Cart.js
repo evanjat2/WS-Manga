@@ -39,7 +39,9 @@ const Cart = () => {
               ))}
             </tbody>
           </table>
+          <div className="bg-cream p-2 font-medium text-blue cursor-pointer text-center hover:scale-110 transition duration-300">Checkout</div>
         </div>
+        
       )}
       {ownedCart.length == 0 && (
         <div className="grid content-center text-center w-full text-blue font-medium">Anda belum memasukkan buku ke keranjang</div>

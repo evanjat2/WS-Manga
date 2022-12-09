@@ -39,8 +39,8 @@ const CardList = (props) => {
         <div className="grid content-between h-full px-4">
           <p>{book.judul}</p>
           <p>{book.pengarang}</p>
-          <p>Volume X</p>
-          <p>$ XXX</p>
+          <p>Volume {book.volume}</p>
+          <p>Rp {book.harga}</p>
         </div>
       </div>
       <div className="justify-self-end">

@@ -18,7 +18,7 @@ const SmallList = (props) => {
   return (
       <tr className="h-[40px]">
         <td className="">{book.judul}</td>
-        <td className="">$ xxx</td>
+        <td className="">Rp {book.harga}</td>
       </tr>
   );
 };
