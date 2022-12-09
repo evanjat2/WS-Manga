@@ -53,6 +53,9 @@ const DaftarPenjualan = () => {
                 <div className="w-full overflow-auto scrollbar-hide h-6 font-medium text-blue">
                   {l.judul}
                 </div>
+                <div className="w-full overflow-auto scrollbar-hide h-6 font-medium text-blue">
+                  Rp{l.harga}
+                </div>
                 <div className="w-full overflow-hidden h-6 text-xs text-blue">
                   {l.pengarang}
                 </div>
