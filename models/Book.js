@@ -20,6 +20,16 @@ const BooksSchema = new mongoose.Schema({
     required: [true, "please provide author"],
     minlength: 1,
   },
+  volume : {
+    type: Number,
+    min : 0,
+    max: 500,
+  },
+  harga : {
+    type : Number,
+    min : 10,
+    max : 100000000,
+  },
   urlGambar: {
     type: String,
     required: [true, "please provide picture"]

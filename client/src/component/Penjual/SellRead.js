@@ -18,8 +18,10 @@ const SellRead = () => {
   const productID = choosedBook._id;
   const buyerID = user._id;
   const judul = choosedBook.judul;
+  const volume = choosedBook.volume;
   const pengarang = choosedBook.pengarang;
   const detail = choosedBook.detail;
+  const harga = choosedBook.harga;
   const urlGambar = choosedBook.urlGambar;
   const owner = choosedBook.owner;
 
@@ -29,7 +31,7 @@ const SellRead = () => {
   };
 
   const addToWishlist = () => {
-    createWish({ judul, pengarang, detail, urlGambar, owner });
+    createWish({ judul, pengarang, detail, volume, urlGambar, owner });
   };
   const removeFromCart = () => {
     deleteCart({ productID, buyerID });
@@ -55,7 +57,7 @@ const SellRead = () => {
             />
           </IKContext>
           <div className="mt-5 text-reemkufiink text-black font-bold">
-            Dummy Rating
+            Rating
           </div>
           <div className="flex items-center mt-5">
             <svg
@@ -118,7 +120,13 @@ const SellRead = () => {
             {choosedBook?.judul}
           </div>
           <div className="bg-[#EFEFEF] p-4 font-medium rounded-lg">
+            {choosedBook?.volume}
+          </div>
+          <div className="bg-[#EFEFEF] p-4 font-medium rounded-lg">
             {choosedBook?.pengarang}
+          </div>
+          <div className="bg-[#EFEFEF] p-4 font-medium rounded-lg">
+            Rp{choosedBook?.harga}
           </div>
           <div className="bg-[#EFEFEF] p-4 font-medium rounded-lg">
             {choosedBook?.detail}

@@ -7,10 +7,10 @@ import {
 } from "../errors/index.js";
 
 const postWish = async (req, res) => {
-  const { judul, pengarang } = req.body;
+  const { judul, pengarang, volume } = req.body;
 
-  if (!judul || !pengarang) {
-    throw new BadRequestError("Please provide all values");
+  if (!judul || !pengarang || !volume) {
+    throw new BadRequestError("Harap isi judul, volume, dan pengarang");
   }
   req.body.owner = req.user.userId;
   const wish = await Wish.create({...req.body, istoSell: false});
@@ -52,7 +52,7 @@ const deleteWish = async (req, res) => {
 
 const updateWish = async (req, res) => {
     const { id } = req.params
-    const { judul, pengarang, detail, urlGambar} = req.body
+    const { judul, pengarang, detail, volume, urlGambar} = req.body
 
     const wish = await Wish.findById(id)
     if (!wish) {
@@ -62,6 +62,7 @@ const updateWish = async (req, res) => {
     if (judul) wish.judul = judul
     if (pengarang) wish.pengarang = pengarang
     if (detail) wish.detail = detail
+    if (volume) wish.volume = volume
     if (urlGambar) wish.urlGambar = urlGambar
 
     if (req.user.userId !== wish.owner.toString()) {

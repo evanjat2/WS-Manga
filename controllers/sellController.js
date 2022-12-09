@@ -5,15 +5,17 @@ import UnAuthenticatedError from "../errors/unauthenticated.js";
 import NotFoundError from "../errors/not-found.js";
 
 const postBook = async (req, res) => {
-  const { judul, pengarang, detail, urlGambar, owner } = req.body;
+  const { judul, pengarang, detail, volume, harga, urlGambar, owner } = req.body;
 
-  if (!judul || !pengarang || !detail || !urlGambar) {
+  if (!judul || !pengarang || !detail || !volume || !harga|| !urlGambar) {
     throw new BadRequestError("Please provide all values");
   }
   const book = await Book.create({
     judul,
     pengarang,
     detail,
+    volume, 
+    harga,
     urlGambar,
     owner,
   });
@@ -32,8 +34,8 @@ const getBook = async (req, res) => {
 
 const updateBook = async (req, res) => {
   const { id: bookId } = req.params;
-  const { judul, pengarang, detail, urlGambar } = req.body;
-  if (!judul || !pengarang || !detail || !urlGambar) {
+  const { judul, pengarang, detail, volume, harga, urlGambar } = req.body;
+  if (!judul || !pengarang || !detail || !volume || !harga || !urlGambar) {
     throw new BadRequestError("Please provide all value");
   }
 
@@ -46,6 +48,8 @@ const updateBook = async (req, res) => {
   book.judul = judul;
   book.pengarang = pengarang;
   book.detail = detail;
+  book.volume = volume;
+  book.harga = harga;
   book.urlGambar = urlGambar;
 
   if (req.user.userId !== book.owner.toString()) {
