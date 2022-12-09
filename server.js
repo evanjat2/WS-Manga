@@ -19,6 +19,7 @@ import connectDB from "./db/connect.js";
 import authRouter from "./routes/authRoutes.js";
 import wishRouter from "./routes/wishRoutes.js";
 import sellRouter from "./routes/sellRouters.js";
+import cartRouter from "./routes/cartRoutes.js";
 
 // middleware
 import notFoundMiddleware from "./middleware/not-found.js";
@@ -61,6 +62,7 @@ app.get("/api/v1", (req, res) => {
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/wishlist", wishRouter);
 app.use("/api/v1/sell", sellRouter);
+app.use("/api/v1/cart", cartRouter);
 
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));

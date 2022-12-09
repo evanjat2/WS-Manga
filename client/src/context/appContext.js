@@ -229,6 +229,27 @@ const AppProvider = ({ children }) => {
     clearAlert();
   };
 
+  const createCart = async (submittedData) => {
+    try {
+      const { data } = await axios.post("/api/v1/cart", submittedData, {
+        headers: {
+          Authorization: `Bearer ${state.token}`,
+        },
+      });
+      console.log(data);
+    } catch (error) {}
+  };
+
+  const checkCart = async (submittedData) => {
+    try {
+      const { data } = await axios.post("/api/v1/cart/check", submittedData);
+      const { cart, totalCarts } = data;
+      console.log(cart);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const getAllSell = async () => {
     dispatch({ type: GET_SELL_BEGIN });
     try {
@@ -356,6 +377,8 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  
+
   const chooseWish = (wish) => {
     dispatch({ type: CHOOSE_WISH, payload: { wish } });
     localStorage.removeItem("choosedWish");
@@ -421,6 +444,8 @@ const AppProvider = ({ children }) => {
         setUpdateWish,
         deleteWish,
         updateWish,
+        createCart,
+        checkCart,
       }}
     >
       {children}

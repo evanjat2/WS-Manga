@@ -1,8 +1,23 @@
 import { IKContext, IKImage } from "imagekitio-react";
+import { useEffect } from "react";
 
 import { useAppContext } from "../../context/appContext";
 const SellRead = () => {
-  const { choosedBook, urlEndpoint } = useAppContext();
+  const { choosedBook, urlEndpoint, user, createCart, checkCart } =
+    useAppContext();
+  const productID = choosedBook._id;
+  const buyerID = user._id;
+
+  const addToCart = () => {
+    createCart({ productID, buyerID });
+  };
+  const addToWishlist = () => {
+    const owner = user._id;
+    console.log(choosedBook);
+  };
+  useEffect(() => {
+    checkCart({ productID, buyerID });
+  });
   return (
     <>
       <div className="min-h-center py-16 md:flex grid font-inter ">
@@ -90,8 +105,18 @@ const SellRead = () => {
         </div>
       </div>
       <div className="text-white flex justify-center gap-12 text-center">
-        <div className="bg-blue cursor-pointer rounded-md min-w-[120px]">Add to cart</div>
-        <div className="bg-blue cursor-pointer rounded-md min-w-[120px] ">Add to wishlist</div>
+        <div
+          className="bg-blue cursor-pointer rounded-md min-w-[120px] py-1 hover:scale-110 transition duration-300"
+          onClick={() => addToCart()}
+        >
+          Add to cart
+        </div>
+        <div
+          className="bg-blue cursor-pointer rounded-md min-w-[120px] py-1 hover:scale-110 transition duration-300"
+          onClick={() => addToWishlist()}
+        >
+          Add to wishlist
+        </div>
       </div>
     </>
   );
