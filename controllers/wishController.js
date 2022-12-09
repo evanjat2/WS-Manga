@@ -52,7 +52,7 @@ const deleteWish = async (req, res) => {
 
 const updateWish = async (req, res) => {
     const { id } = req.params
-    const { judul, pengarang, penerbit, jumlahHalaman, tahunTerbit} = req.body
+    const { judul, pengarang, detail, urlGambar} = req.body
 
     const wish = await Wish.findById(id)
     if (!wish) {
@@ -61,9 +61,8 @@ const updateWish = async (req, res) => {
 
     if (judul) wish.judul = judul
     if (pengarang) wish.pengarang = pengarang
-    if (penerbit) wish.penerbit = penerbit
-    if (jumlahHalaman) wish.jumlahHalaman = jumlahHalaman
-    if (tahunTerbit) wish.tahunTerbit = tahunTerbit
+    if (detail) wish.detail = detail
+    if (urlGambar) wish.urlGambar = urlGambar
 
     if (req.user.userId !== wish.owner.toString()) {
       throw new UnAuthenticatedError("Ini bukan item wishlist milik Anda");
