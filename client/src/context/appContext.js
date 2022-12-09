@@ -20,16 +20,13 @@ import {
   CREATE_BOOK_BEGIN,
   CREATE_BOOK_SUCCESS,
   CREATE_BOOK_ERROR,
-  GET_BOOK_SUCCESS,
   GET_SELL_BEGIN,
   GET_SELL_SUCCESS,
   SET_UPDATE_SELL,
   UPDATE_BOOK_BEGIN,
   UPDATE_BOOK_SUCCESS,
-  UPDATE_BOOK_ERROR,
   DELETE_BOOK_BEGIN,
   DELETE_BOOK_SUCCESS,
-  DELETE_BOOK_ERROR,
   GET_OWNED_BOOK_SUCCESS,
   CHOOSE_BOOK,
   CREATE_WISH_BEGIN,
@@ -40,10 +37,8 @@ import {
   SET_UPDATE_WISH,
   UPDATE_WISH_BEGIN,
   UPDATE_WISH_SUCCESS,
-  UPDATE_WISH_ERROR,
   DELETE_WISH_BEGIN,
   DELETE_WISH_SUCCESS,
-  DELETE_WISH_ERROR,
   GET_OWNED_WISHES_SUCCESS,
   CHOOSE_WISH,
   CHECK_CART_TRUE,
@@ -258,7 +253,7 @@ const AppProvider = ({ children }) => {
           Authorization: `Bearer ${state.token}`,
         },
       });
-      const { book, totalBooks } = data;
+      const { book } = data;
       dispatch({
         type: GET_OWNED_BOOK_SUCCESS,
         payload: { data },
@@ -304,7 +299,7 @@ const AppProvider = ({ children }) => {
         });
         console.log("Sudah masuk carts");
       }
-      if (totalCarts == 0) {
+      if (totalCarts === 0) {
         dispatch({
           type: CHECK_CART_FALSE,
         });
@@ -403,7 +398,7 @@ const AppProvider = ({ children }) => {
           Authorization: `Bearer ${state.token}`,
         },
       });
-      const { wishes, totalWishes } = data;
+      const { wishes } = data;
       dispatch({
         type: GET_OWNED_WISHES_SUCCESS,
         payload: { data },
