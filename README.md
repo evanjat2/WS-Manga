@@ -25,7 +25,7 @@ WS Manga or Waroeng Shopping Manga was created to form an application from the d
 git clone https://github.com/evanjat2/PAW.git
 ```
 
-## Install the dependency with
+## Install the dependency
 ```
 npm install
 ```
@@ -47,18 +47,21 @@ All these parameters are required. API private key can also be obtained from the
 
 Please note that file upload will only work if, along with the above, you have also defined `YOUR_IMAGEKIT_PUBLIC_KEY`, `YOUR_IMAGEKIT_URL_ENDPOINT`, and `YOUR_AUTHENTICATION_ENDPOINT` variables in `client/src/context/appContext.js`.
 
+You should also define .env both at root and at client folder
+- rename .env.temp to .env
+- setup values for - MONGO_URL, JWT_SECRET, JWT_LIFETIME, URL_ENDPOINT, PUBLIC_KEY, PRIVATE_KEY, and many more ..
 ## Finally 
-### Run the server on PAW directory
+### Run only server side
 ```
 npm run server
 ```
 ### or
-### Run the client side on PAW directory
+### Run only client side
 ```
 npm run client
 ```
 ### or
-## Run both client and server on PAW directory
+## Run both client and server
 ```
 npm start
 ```
