@@ -14,7 +14,7 @@ import SellDeletePage from "./SellDeletePage";
 import ProductPage from "./ProductPage";
 import SoldBookPage from "./SoldBookPage";
 import ForgotPage from "./ForgotPage";
-import Cart from "./Cart";
+import CartPage from "./CartPage";
 import SellDashboardPage from "./SellDashboardPage";
 
 export {
@@ -31,7 +31,7 @@ export {
   SellReadPage,
   SellUpdatePage,
   SellDeletePage,
-  Cart,
+  CartPage,
   ProductPage,
   SoldBookPage,
   ForgotPage,

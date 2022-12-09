@@ -47,4 +47,9 @@ const deleteCart = async (req, res) => {
   res.status(StatusCodes.OK).json({ msg: "Sukses! Cart telah dihapus" });
 };
 
-export { createCart, checkCart, deleteCart };
+const getOwnedCart = async (req, res) => {
+  const cart = await Cart.find({ buyerID: req.user.userId});
+  res.status(StatusCodes.OK).json({ cart, totalCarts: cart.length });
+};
+
+export { createCart, checkCart, deleteCart, getOwnedCart };

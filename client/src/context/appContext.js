@@ -19,6 +19,7 @@ import {
   CREATE_BOOK_BEGIN,
   CREATE_BOOK_SUCCESS,
   CREATE_BOOK_ERROR,
+  GET_BOOK_SUCCESS,
   GET_SELL_BEGIN,
   GET_SELL_SUCCESS,
   SET_UPDATE_SELL,
@@ -46,6 +47,7 @@ import {
   CHOOSE_WISH,
   CHECK_CART_TRUE,
   CHECK_CART_FALSE,
+  GET_OWNED_CART_SUCCESS,
 } from "./actions";
 
 const token = localStorage.getItem("token");
@@ -67,7 +69,9 @@ const initialState = {
   pengarang: "",
   istoSell: "",
   owner: "",
+  book: [],
   ownedBook: [],
+  ownedCart: [],
   ownWishes: [],
   checkedCart: false,
   choosedBook: choosedBook ? JSON.parse(choosedBook) : null,
@@ -333,7 +337,7 @@ const AppProvider = ({ children }) => {
       dispatch({
         type: CHECK_CART_FALSE,
       });
-      console.log("Sampe sini")
+      console.log("Sampe sini");
     } catch (error) {
       console.log("error: can't delete book");
     }
@@ -449,6 +453,22 @@ const AppProvider = ({ children }) => {
     } catch (error) {}
     clearAlert();
   };
+
+  const getOwnedCart = async () => {
+    try {
+      const { data } = await axios.get("/api/v1/cart", {
+        headers: {
+          Authorization: `Bearer ${state.token}`,
+        },
+      });
+      dispatch({
+        type: GET_OWNED_CART_SUCCESS,
+        payload: { data },
+      });
+    } catch (error) {
+      console.log("Error");
+    }
+  };
   return (
     <AppContext.Provider
       value={{
@@ -477,6 +497,7 @@ const AppProvider = ({ children }) => {
         createCart,
         checkCart,
         deleteCart,
+        getOwnedCart
       }}
     >
       {children}

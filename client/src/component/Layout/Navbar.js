@@ -21,7 +21,8 @@ const Navbar = () => {
           <a href="/profile">
             <p className="hover:text-orange cursor-pointer">Profil</p>
           </a>
-          <p className="hover:text-orange cursor-pointer">My Cart</p>
+          <a href="/cart">
+          <p className="hover:text-orange cursor-pointer">My Cart</p></a>
           <a href="/">
             <p className="hover:text-orange cursor-pointer">Home</p>
           </a>

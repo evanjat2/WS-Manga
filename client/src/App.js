@@ -9,7 +9,7 @@ import {
   WishUpdatePage,
   WishReadPage,
   WishDeletePage,
-  Cart,
+  CartPage,
   ForgotPage,
   SellDashboardPage,
   SellCreatePage,
@@ -44,7 +44,7 @@ function App() {
           <Route path="/sell/read" element={<SellReadPage />}></Route>
           <Route path="/sell/delete" element={<SellDeletePage />}></Route>
 
-          <Route path="/cart" element={<Cart />}></Route>
+          <Route path="/cart" element={<CartPage />}></Route>
           <Route path="/product" element={<ProductPage />}></Route>
           <Route path="/soldbook" element={<SoldBookPage />}></Route>
           <Route path="/forgot" element={<ForgotPage />}></Route>

@@ -28,7 +28,7 @@ const DaftarPenjualan = () => {
           <p className="cursor-pointer">Daftar Penjualan</p>
           <p className="cursor-pointer">Show All</p>
         </div>
-        <div className="flex justify-between gap-8 overflow-auto mt-4 scrollbar-hide pb-40">
+        <div className="grid justify-items-between grid-cols-7 overflow-auto mt-4 scrollbar-hide pb-40">
           {list?.map((l) => (
             <a href="/sell/read">
               <div
@@ -51,7 +51,7 @@ const DaftarPenjualan = () => {
                     ]}
                   />
                 </IKContext>
-                <div className="w-full overflow-hidden h-6 font-medium text-blue">
+                <div className="w-full overflow-auto scrollbar-hide h-6 font-medium text-blue">
                   {l.judul}
                 </div>
                 <div className="w-full overflow-hidden h-6 text-xs text-blue">

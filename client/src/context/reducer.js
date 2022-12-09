@@ -41,7 +41,9 @@ import {
   GET_OWNED_WISHES_SUCCESS,
   CHOOSE_WISH,
   CHECK_CART_TRUE,
-  CHECK_CART_FALSE
+  CHECK_CART_FALSE,
+  GET_OWNED_CART_SUCCESS,
+  GET_BOOK_SUCCESS
 } from "./actions";
 
 import { initialState } from "./appContext";
@@ -176,6 +178,15 @@ const reducer = (state, action) => {
       alertText: action.payload.msg,
     };
   }
+
+  if (action.type === GET_BOOK_SUCCESS) {
+    return {
+      ...state,
+      book: action.payload.data,
+    };
+  }
+
+  
   if (action.type === GET_SELL_BEGIN) {
     return { ...state, isLoading: true };
   }
@@ -354,6 +365,12 @@ const reducer = (state, action) => {
     return {
       ...state,
       checkedCart: false,
+    };
+  }
+  if (action.type === GET_OWNED_CART_SUCCESS) {
+    return {
+      ...state,
+      ownedCart: action.payload.data.cart
     };
   }
   throw new Error(`no such action: ${action.type}`);

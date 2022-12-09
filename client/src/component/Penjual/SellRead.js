@@ -113,19 +113,25 @@ const SellRead = () => {
           </div>
         </div>
       </div>
-      <div className="text-white flex justify-center gap-12 text-center">
-        <div
-          className={`cursor-pointer rounded-md min-w-[140px] py-1 hover:scale-110 transition duration-300 ${
-            checkedCart ? " bg-red-400 " : " bg-blue "
-          }`}
-          onClick={checkedCart ? () => removeFromCart() : () => addToCart()}
-        >
-          {checkedCart ? "Remove from Cart" : "Add to Cart"}
+      {choosedBook.owner !== user._id && (
+        <div className="text-white flex justify-center gap-12 text-center">
+          <div
+            className={`cursor-pointer rounded-md min-w-[140px] py-1 hover:scale-110 transition duration-300 ${
+              checkedCart ? " bg-red-400 " : " bg-blue "
+            }`}
+            onClick={checkedCart ? () => removeFromCart() : () => addToCart()}
+          >
+            {checkedCart ? "Remove from Cart" : "Add to Cart"}
+          </div>
+          <div className="bg-blue cursor-pointer rounded-md min-w-[140px] py-1 hover:scale-110 transition duration-300">
+            Add to wishlist
+          </div>
         </div>
-        <div className="bg-blue cursor-pointer rounded-md min-w-[140px] py-1 hover:scale-110 transition duration-300">
-          Add to wishlist
-        </div>
-      </div>
+      )}
+
+      {choosedBook.owner == user._id && (
+        <div className="text-center text-blue"> You sell this book</div>
+      )}
     </>
   );
 };
