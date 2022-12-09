@@ -11,7 +11,7 @@ const BooksSchema = new mongoose.Schema({
   },
   detail: {
     type: String, 
-    required: [true, "please provide details"],
+    // required: [true, "please provide details"],
     minlength: 1,
     maxlength: 3000,
   },

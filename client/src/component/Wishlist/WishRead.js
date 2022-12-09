@@ -19,7 +19,7 @@ const WishRead = () => {
             />
           </IKContext>
           <div className="mt-5 text-reemkufiink text-black font-bold">
-            Dummy Rating
+            Rating
           </div>
           <div className="flex items-center mt-5">
             <svg
@@ -85,7 +85,7 @@ const WishRead = () => {
             {choosedWish?.pengarang}
           </div>
           <div className="bg-[#EFEFEF] p-4 font-medium rounded-lg">
-            {choosedWish?.detail}
+            {choosedWish?.volume}
           </div>
         </div>
       </div>

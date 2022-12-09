@@ -30,7 +30,7 @@ const SellRead = () => {
   };
 
   const addToWishlist = () => {
-    createWish({ judul, pengarang, detail, volume, urlGambar, owner });
+    createWish({ judul, pengarang, volume, urlGambar, owner });
   };
   const removeFromCart = () => {
     deleteCart({ productID, buyerID });

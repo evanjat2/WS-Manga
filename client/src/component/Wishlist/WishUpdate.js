@@ -18,16 +18,16 @@ const WishUpdate = () => {
   } = useAppContext();
   const [judul, setJudul] = useState(choosedWish.judul);
   const [pengarang, setPengarang] = useState(choosedWish.pengarang);
-  const [detail, setDetail] = useState(choosedWish.detail);
+  const [volume, setVolume] = useState(choosedWish.volume);
   const [urlGambar, setUrlGambar] = useState(choosedWish.urlGambar);
   const _id = choosedWish._id;
   const onSubmit = (e) => {
     e.preventDefault();
-    if (!judul || !pengarang || !detail) {
-      console.log("Judul, Pengarang, dan Detail tidak boleh kosong!");
+    if (!judul || !pengarang || !volume) {
+      console.log("Judul, Pengarang, dan Volume tidak boleh kosong!");
       return;
     }
-    updateWish({ judul, pengarang, detail, urlGambar, _id });
+    updateWish({ judul, pengarang, volume, urlGambar, _id });
   };
 
   return (
@@ -48,7 +48,7 @@ const WishUpdate = () => {
               value={pengarang}
               setValue={setPengarang}
             />
-            <Input label="Details" value={detail} setValue={setDetail} />
+            <Input label="Volume" value={volume} setValue={setVolume} />
           </div>
         </form>
         <div class="w-[35%] p-4 grid content-center mt-28">

@@ -18,18 +18,19 @@ const WishCreate = () => {
   } = useAppContext();
   const [judul, setJudul] = useState("");
   const [pengarang, setPengarang] = useState("");
-  const [detail, setDetail] = useState("");
+  
+  const [volume, setVolume] = useState();
   const [urlGambar, setUrlGambar] = useState("1.png");
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (!judul || !pengarang || !detail) {
-      console.log("Judul, Pengarang, dan Detail tidak boleh kosong!");
+    if (!judul || !pengarang || !volume) {
+      console.log("Judul, Pengarang, dan Volume tidak boleh kosong!");
       return;
     }
     const owner = user._id;
     console.log(owner);
-    createWish({ judul, pengarang, detail, urlGambar, owner });
+    createWish({ judul, pengarang, volume, urlGambar, owner });
   };
   return (
     <>
@@ -49,7 +50,7 @@ const WishCreate = () => {
               value={pengarang}
               setValue={setPengarang}
             />
-            <Input label="Details" value={detail} setValue={setDetail} />
+            <Input label="Volume" value={volume} setValue={setVolume} />
           </div>
         </form>
         <div class="w-[35%] p-4 grid content-center mt-28">

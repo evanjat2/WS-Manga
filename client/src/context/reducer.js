@@ -305,14 +305,13 @@ const reducer = (state, action) => {
     const wish = action.payload.data.wishes.find(
       (wish) => wish.id === action.payload.id
     );
-    const { _id, judul, pengarang, detail, urlGambar } = wish;
+    const { _id, judul, pengarang, urlGambar } = wish;
     return {
       ...state,
       isEditing: true,
       editBookId: _id,
       judul,
       pengarang,
-      detail,
       urlGambar,
     };
   }

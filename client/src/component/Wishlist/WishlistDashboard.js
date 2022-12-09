@@ -29,7 +29,7 @@ const WishListDashboard = () => {
                 Judul
               </th>
               <th className="border-x-[1px] px-2 border-cream overflow-hidden w-[40%]">
-                Detail
+                Volume
               </th>
               <th className="w-[20%] px-2">Aksi</th>
             </tr>
@@ -42,7 +42,7 @@ const WishListDashboard = () => {
                   {list.judul}
                 </td>
                 <td className="px-2 border-x-[1px] border-black overflow-hidden truncate . . .">
-                  {list.detail}
+                  {list.volume}
                 </td>
                 <td className="px-2">
                   <div className="grid grid-cols-3 gap-2 text-center text-white text-sm">
