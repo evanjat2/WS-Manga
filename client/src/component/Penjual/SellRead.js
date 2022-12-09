@@ -89,6 +89,10 @@ const SellRead = () => {
           </div>
         </div>
       </div>
+      <div className="text-white flex justify-center gap-12 text-center">
+        <div className="bg-blue cursor-pointer rounded-md min-w-[120px]">Add to cart</div>
+        <div className="bg-blue cursor-pointer rounded-md min-w-[120px] ">Add to wishlist</div>
+      </div>
     </>
   );
 };

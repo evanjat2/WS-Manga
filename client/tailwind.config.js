@@ -9,7 +9,7 @@ module.exports = {
       colors: {
         brown: "#87787E",
         orange: "#FBAB05",
-        blue: "#35447C", 
+        blue: "#35447C",
         cream: "#FAFAEB",
       },
       fontFamily: {
@@ -18,5 +18,8 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-font-inter")],
+  plugins: [
+    require("tailwindcss-font-inter"),
+    require("tailwind-scrollbar-hide"),
+  ],
 };

@@ -7,7 +7,7 @@ const Landing = () => {
   return (
     <>
       <Navbar />
-      <div className="mt-[60px] bg-cream">
+      <div className="mt-[60px] bg-cream w-screen">
         <Cover />
         <DaftarPenjualan />
       </div>
