@@ -1,3 +1,5 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import "./App.css";
 import {
   Landing,
@@ -18,10 +20,8 @@ import {
   SellDeletePage,
   NotFoundPage
 } from "../src/pages";
-import { BrowserRouter, Routes, Route, Switch, Link } from "react-router-dom";
 import ProductPage from "./pages/ProductPage";
 import SoldBookPage from "./pages/SoldBookPage";
-
 
 function App() {
   return (

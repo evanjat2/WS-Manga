@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-import { IKContext, IKImage, IKUpload } from "imagekitio-react";
+import { IKContext, IKImage} from "imagekitio-react";
 
-import { useAppContext } from "../../context/appContext";
 import Alert from "../Alert";
 import Input from "./Input";
 import Upload from "./Upload";
+import { useAppContext } from "../../context/appContext";
 
 const SellCreate = () => {
   const {

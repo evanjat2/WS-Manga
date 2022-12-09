@@ -1,6 +1,7 @@
 import React from "react";
-import AuthButton from "./Auth/AuthButton";
+
 import Input from "./Auth/Input";
+import AuthButton from "./Auth/AuthButton";
 
 const Forgot = () => {
   const list = [];

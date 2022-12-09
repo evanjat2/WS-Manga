@@ -1,5 +1,6 @@
 import { Navbar } from "../component/Layout";
 import SellRead from "../component/Penjual/SellRead";
+
 const SellReadPage = () => {
   return (
     <div>

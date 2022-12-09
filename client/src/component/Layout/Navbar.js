@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
 import wsmanga from "../../assets/images/layout/ws-manga.png";
 import { useAppContext } from "../../context/appContext";
+
 const Navbar = () => {
   const { user } = useAppContext();
   const navigate = useNavigate();

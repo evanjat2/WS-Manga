@@ -1,5 +1,6 @@
 import { Navbar } from "../component/Layout";
 import WishCreate from "../component/Wishlist/WishCreate";
+
 const WishCreatePage = () => {
   return (
     <div>

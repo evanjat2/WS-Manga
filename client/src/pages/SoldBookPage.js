@@ -1,5 +1,6 @@
 import { Navbar } from "../component/Layout";
 import SoldBook from "../component/SoldBook";
+
 const SoldBookPage = () => {
   return (
     <div>

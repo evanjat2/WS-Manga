@@ -1,5 +1,6 @@
 import { Navbar } from "../component/Layout";
 import WishRead from "../component/Wishlist/WishRead";
+
 const WishReadPage = () => {
   return (
     <div>

@@ -1,5 +1,6 @@
 import WishlistDashboard from "../component/Wishlist/WishlistDashboard"
 import Navbar from "../component/Layout/Navbar"
+
 const WishlistDashboardPage = () => {
   return (
     <div className="bg-white">

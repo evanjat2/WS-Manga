@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-import { IKContext, IKImage, IKUpload } from "imagekitio-react";
+import { IKContext, IKImage } from "imagekitio-react";
 
 import Input from "./Input";
 import Upload from "./Upload";
-
-import { useAppContext } from "../../context/appContext";
 import Alert from "../Alert";
 import Select from "./Select";
+import { useAppContext } from "../../context/appContext";
+
 const Profile = () => {
   const {
     user,

@@ -1,5 +1,6 @@
 import { Navbar } from "../component/Layout";
 import WishDelete from "../component/Wishlist/WishDelete";
+
 const WishDeletePage = () => {
   return (
     <div>

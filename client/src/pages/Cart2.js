@@ -1,8 +1,10 @@
 import React from 'react'
-import { Navbar } from '../component/Layout'
+
 import bookCover from "../assets/images/Cart/bookCover.jpg"
 import trash from "../assets/images/Cart/trash.png"
 import Line from "../assets/images/Cart/Line.png"
+import { Navbar } from '../component/Layout'
+
 const Cart = () => {
   return (
     <div>

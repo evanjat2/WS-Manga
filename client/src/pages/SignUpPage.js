@@ -1,5 +1,6 @@
 import SignUp from "../component/Auth/SignUp";
 import Background from "../component/Auth/Background";
+
 const SignUpPage = () => {
   return (
     <>

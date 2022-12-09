@@ -1,9 +1,8 @@
-import { useEffect } from "react";
-
-import { Navbar } from "../component/Layout";
 import Cover from "../component/Landing/Cover";
 import DaftarPenjualan from "../component/Landing/DaftarPenjualan";
 import DaftarWishlist from "../component/Landing/DaftarWishlist";
+import { Navbar } from "../component/Layout";
+
 const Landing = () => {
   return (
     <>

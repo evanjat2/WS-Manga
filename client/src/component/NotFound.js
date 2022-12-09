@@ -1,4 +1,3 @@
-import {useNavigate} from "react-router-dom";
 import error404 from "../assets/images/Error/error404.png";
 
 const NotFound = () => {

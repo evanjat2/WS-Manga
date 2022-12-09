@@ -1,5 +1,6 @@
 import { Navbar } from "../component/Layout";
 import { Profile } from "../component/Profile";
+
 const ProfilePage = () => {
   return (
     <div className="bg-cream">

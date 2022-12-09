@@ -1,5 +1,6 @@
 import { Navbar } from "../component/Layout";
 import SellUpdate from "../component/Penjual/SellUpdate";
+
 const SellUpdatePage = () => {
   return (
     <div>

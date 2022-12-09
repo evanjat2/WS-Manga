@@ -1,8 +1,9 @@
-import { IKContext, IKImage } from "imagekitio-react";
 import { useEffect } from "react";
+import { IKContext, IKImage } from "imagekitio-react";
 
 import Alert from "../Alert";
 import { useAppContext } from "../../context/appContext";
+
 const SellRead = () => {
   const {
     choosedBook,
@@ -20,7 +21,6 @@ const SellRead = () => {
   const judul = choosedBook.judul;
   const volume = choosedBook.volume;
   const pengarang = choosedBook.pengarang;
-  const detail = choosedBook.detail;
   const urlGambar = choosedBook.urlGambar;
   const owner = choosedBook.owner;
 

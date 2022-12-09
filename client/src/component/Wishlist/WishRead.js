@@ -1,6 +1,7 @@
 import { IKContext, IKImage } from "imagekitio-react";
 
 import { useAppContext } from "../../context/appContext";
+
 const WishRead = () => {
   const { choosedWish, urlEndpoint } = useAppContext();
   return (

@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 
-import { useAppContext } from "../../context/appContext";
 import CardList from "./CardList";
 import SmallList from "./SmallList";
+import { useAppContext } from "../../context/appContext";
+
 const Cart = () => {
   const { getOwnedCart, ownedCart } = useAppContext();
   useEffect(() => {

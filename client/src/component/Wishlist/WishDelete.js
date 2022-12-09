@@ -1,7 +1,7 @@
 import { IKContext, IKImage } from "imagekitio-react";
 
-import { useAppContext } from "../../context/appContext";
 import Alert from "../Alert";
+import { useAppContext } from "../../context/appContext";
 
 const WishDelete = () => {
   const { choosedWish, deleteWish, showAlert, urlEndpoint } = useAppContext();

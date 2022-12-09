@@ -1,5 +1,6 @@
 import { Navbar } from "../component/Layout";
 import WishUpdate from "../component/Wishlist/WishUpdate";
+
 const WishUpdatePage = () => {
   return (
     <div>

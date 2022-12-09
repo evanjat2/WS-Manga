@@ -1,8 +1,9 @@
-import { list } from "postcss";
 import { useEffect } from "react";
+
 import { useAppContext } from "../../context/appContext";
+
 const WishListDashboard = () => {
-  const { getOwnWishes, ownWishes, alertType, chooseWish } = useAppContext();
+  const { getOwnWishes, ownWishes, chooseWish } = useAppContext();
   useEffect(() => {
     getOwnWishes();
   }, []);

@@ -1,8 +1,5 @@
-import { useEffect,useState } from "react";
-
 import axios from "axios";
-
-import { useAppContext } from "../../context/appContext";
+import { useEffect,useState } from "react";
 
 const SmallList = (props) => {
   const [book, setBook] = useState([]);

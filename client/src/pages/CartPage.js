@@ -1,5 +1,6 @@
-import { Navbar } from "../component/Layout";
 import Cart from "../component/Cart/Cart.js";
+import { Navbar } from "../component/Layout";
+
 const CartPage = () => {
   return (
     <>

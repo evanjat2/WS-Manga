@@ -1,5 +1,6 @@
 import poster from "../../assets/images/landing/poster.png";
 import name from "../../assets/images/landing/name.png";
+
 const Cover = () => {
   return (
     <div className="h-screen w-screen relative font-inter text-white overflow-hidden">

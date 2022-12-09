@@ -1,5 +1,6 @@
 import SellDashboard from "../component/Penjual/SellDashboard"
 import Navbar from "../component/Layout/Navbar"
+
 const SellDashboardPage = () => {
   return (
     <div className="bg-white">

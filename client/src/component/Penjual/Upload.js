@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-import { IKContext, IKImage, IKUpload } from "imagekitio-react";
+import { IKContext, IKUpload } from "imagekitio-react";
 
 import { useAppContext } from "../../context/appContext";
 

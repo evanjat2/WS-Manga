@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 import Input from "./Input";
+import Alert from "../Alert";
 import AuthButton from "./AuthButton";
 import { useAppContext } from "../../context/appContext";
-import Alert from "../Alert";
-import { useNavigate } from "react-router-dom";
 
 const initialState = {
   name: "",

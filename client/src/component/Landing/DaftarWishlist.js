@@ -1,10 +1,10 @@
+import { useEffect } from "react";
 import { IKContext, IKImage } from "imagekitio-react";
-import { useEffect, useState } from "react";
+
 import { useAppContext } from "../../context/appContext";
-import axios from "axios";
 
 const DaftarWishlist = () => {
-  const { clearAlert, chooseWish, getOwnWishes, ownWishes } = useAppContext();
+  const { chooseWish, getOwnWishes, ownWishes } = useAppContext();
   const list = ownWishes;
   useEffect(() => {
     getOwnWishes();

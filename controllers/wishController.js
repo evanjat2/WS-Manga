@@ -1,5 +1,6 @@
-import Wish from "../models/Book.js";
 import { StatusCodes } from "http-status-codes";
+
+import Wish from "../models/Book.js";
 import {
   BadRequestError,
   NotFoundError,

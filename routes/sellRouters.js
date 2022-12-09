@@ -1,5 +1,4 @@
 import express from "express";
-const router = express.Router();
 
 import {
   getBook,
@@ -10,6 +9,8 @@ import {
   getOwnedBook,
 } from "../controllers/sellController.js";
 import authenticateUser from "../middleware/auth.js";
+
+const router = express.Router();
 
 router
   .route("/")

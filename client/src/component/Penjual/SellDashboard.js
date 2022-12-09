@@ -1,8 +1,9 @@
-import { list } from "postcss";
 import { useEffect } from "react";
+
 import { useAppContext } from "../../context/appContext";
+
 const SellDashboard = () => {
-  const { getOwnedBook, ownedBook, alertType, chooseBook } = useAppContext();
+  const { getOwnedBook, ownedBook, chooseBook } = useAppContext();
   useEffect(() => {
     getOwnedBook();
   }, []);
