@@ -1,6 +1,7 @@
 import { IKContext, IKImage } from "imagekitio-react";
 import { useEffect } from "react";
 
+import Alert from "../Alert";
 import { useAppContext } from "../../context/appContext";
 const SellRead = () => {
   const {
@@ -11,15 +12,25 @@ const SellRead = () => {
     checkCart,
     checkedCart,
     deleteCart,
+    createWish,
+    showAlert,
   } = useAppContext();
   const productID = choosedBook._id;
   const buyerID = user._id;
+  const judul = choosedBook.judul;
+  const pengarang = choosedBook.pengarang;
+  const detail = choosedBook.detail;
+  const urlGambar = choosedBook.urlGambar;
+  const owner = choosedBook.owner;
 
   const addToCart = () => {
     createCart({ productID, buyerID });
     checkCart({ productID, buyerID });
   };
 
+  const addToWishlist = () => {
+    createWish({ judul, pengarang, detail, urlGambar, owner });
+  };
   const removeFromCart = () => {
     deleteCart({ productID, buyerID });
   };
@@ -29,6 +40,7 @@ const SellRead = () => {
   }, [checkedCart]);
   return (
     <>
+      {showAlert && <Alert />}
       <div className="min-h-center py-16 md:flex grid font-inter ">
         <div className="w-[40%] pl-30 mx-20 grid place-items-center">
           <IKContext urlEndpoint={urlEndpoint}>
@@ -123,7 +135,10 @@ const SellRead = () => {
           >
             {checkedCart ? "Remove from Cart" : "Add to Cart"}
           </div>
-          <div className="bg-blue cursor-pointer rounded-md min-w-[140px] py-1 hover:scale-110 transition duration-300">
+          <div
+            className="bg-blue cursor-pointer rounded-md min-w-[140px] py-1 hover:scale-110 transition duration-300"
+            onClick={() => addToWishlist()}
+          >
             Add to wishlist
           </div>
         </div>

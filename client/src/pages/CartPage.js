@@ -4,7 +4,7 @@ const CartPage = () => {
   return (
     <>
       <Navbar />
-      <div className="w-screen pt-[60px] px-[40px] h-screen">
+      <div className="w-screen py-[30px] px-[40px] h-screen">
         <Cart/>
       </div>
     </>

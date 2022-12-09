@@ -18,7 +18,7 @@ const DaftarWishlist = () => {
         {list.length > 0 && (
           <div className="grid justify-items-between grid-cols-7 h-[400px] mt-4 overflow-auto">
             {list?.map((l) => (
-              <a href="/wish/read">
+              <a href="/wishlist/read">
                 <div
                   className="overflow-hidden cursor-pointer"
                   onClick={() => chooseWish(l)}

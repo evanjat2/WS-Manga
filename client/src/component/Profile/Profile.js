@@ -7,6 +7,7 @@ import Upload from "./Upload";
 
 import { useAppContext } from "../../context/appContext";
 import Alert from "../Alert";
+import Select from "./Select";
 const Profile = () => {
   const {
     user,
@@ -82,7 +83,7 @@ const Profile = () => {
                       <Input label="Nama" value={name} setValue={setName} />
                       <Input label="Email" value={email} setValue={setEmail} />
                       <Input label="No. Hp" value={NoHP} setValue={setNoHp} />
-                      <Input
+                      <Select
                         label="Jenis Kelamin"
                         value={gender}
                         setValue={setGender}
